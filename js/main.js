@@ -16,27 +16,40 @@ const sizeGuideModal = document.getElementById('sizeGuideModal');
 
 // ========== Default Products ==========
 const defaultProducts = [
-    // Elegância Plus
-    { name: 'Macacão Plus', price: 160.00, description: 'Macacão fitness plus size, modelagem perfeita e conforto total', images: [], category: 'plus' },
-    { name: 'Conjunto Plus Rosa', price: 149.00, description: 'Conjunto fitness plus size, tecido premium com compressão leve', images: [], category: 'plus' },
-    { name: 'Conjunto Plus Vermelho', price: 159.00, description: 'Conjunto fitness plus size, cintura alta e suporte máximo', images: [], category: 'plus' },
-    { name: 'Blusa Dryft Plus', price: 65.00, description: 'Blusa dry fit plus size, tecido leve e respirável', images: [], category: 'plus' },
-    { name: 'Conjunto Plus Preto', price: 150.00, description: 'Conjunto fitness plus size preto, elegância e conforto', images: [], category: 'plus' },
-    { name: 'Tule Plus', price: 59.00, description: 'Blusa tule plus size, transparência sutil e estilo moderno', images: [], category: 'plus' },
-    { name: 'Conjunto Plus Brilho', price: 150.00, description: 'Conjunto fitness plus size com detalhe brilhante', images: [], category: 'plus' },
-    { name: 'Conjunto Plus Marrom', price: 135.00, description: 'Conjunto fitness plus size, cor tendência e tecido macio', images: [], category: 'plus' },
+    // ===== PLUS SIZE =====
+    { name: 'Macacão Plus Pink', price: 160.00, description: 'Macacão fitness plus size na cor pink, modelagem perfeita com detalhe nas costas', images: ['assets/products/macacao-plus-pink-1.jpeg','assets/products/macacao-plus-pink-2.jpeg','assets/products/macacao-plus-pink-3.jpeg'], category: 'plus', colors: [{name:'Rosa',hex:'#e91e8c'}] },
+    { name: 'Conjunto Plus Vermelho', price: 159.00, description: 'Top + legging plus size vermelho marsala, cintura alta e costas trançadas', images: ['assets/products/conjunto-plus-vermelho-1.jpeg','assets/products/conjunto-plus-vermelho-2.jpeg'], category: 'plus', colors: [{name:'Vermelho',hex:'#dc2626'}] },
+    { name: 'Conjunto Plus Verde', price: 149.00, description: 'Top + legging plus size verde esmeralda, tecido brilhoso e compressão leve', images: ['assets/products/conjunto-plus-verde-1.jpeg','assets/products/conjunto-plus-verde-2.jpeg'], category: 'plus', colors: [{name:'Verde',hex:'#16a34a'}] },
+    { name: 'Blusa Dryft Plus', price: 65.00, description: 'Blusa dry fit plus size azul com legging roxa, tecido leve e respirável', images: ['assets/products/blusa-dryft-plus-1.jpeg','assets/products/blusa-dryft-plus-2.jpeg','assets/products/blusa-dryft-plus-3.jpeg'], category: 'plus', colors: [{name:'Azul',hex:'#2563eb'},{name:'Roxo',hex:'#7c3aed'}] },
+    { name: 'Conjunto Plus Preto', price: 150.00, description: 'Top cropped + legging plus size preto, tecido brilhoso e elegante', images: ['assets/products/conjunto-plus-preto-1.jpeg','assets/products/conjunto-plus-preto-2.jpeg'], category: 'plus', colors: [{name:'Preto',hex:'#000000'}] },
+    { name: 'Tule Plus', price: 59.00, description: 'Blusa tule plus size azul marinho com detalhe transparente na cintura', images: ['assets/products/tule-plus-1.jpeg','assets/products/tule-plus-2.jpeg'], category: 'plus', colors: [{name:'Azul Marinho',hex:'#1e3a5f'}] },
+    { name: 'Conjunto Plus Branco', price: 150.00, description: 'Top branco + legging preta plus size, costas nadador e conforto total', images: ['assets/products/conjunto-plus-branco-1.jpeg','assets/products/conjunto-plus-branco-2.jpeg'], category: 'plus', colors: [{name:'Branco',hex:'#ffffff'},{name:'Preto',hex:'#000000'}] },
+    { name: 'Conjunto Plus Short', price: 135.00, description: 'Regata + short bike plus size preto, perfeito para treino e dia a dia', images: ['assets/products/conjunto-plus-short-1.jpeg','assets/products/conjunto-plus-short-2.jpeg'], category: 'plus', colors: [{name:'Preto',hex:'#000000'}] },
 
-    // Elegância Tamanho Único (36/42)
-    { name: 'Conjunto Azul', price: 149.00, description: 'Conjunto fitness tam. único (36-42), top + legging azul', images: [], category: 'tamanho-unico' },
-    { name: 'Macacão Verde', price: 150.00, description: 'Macacão fitness tam. único (36-42), cor verde vibrante', images: [], category: 'tamanho-unico' },
-    { name: 'Conjunto Verde Água', price: 125.00, description: 'Conjunto fitness tam. único (36-42), top + legging verde água', images: [], category: 'tamanho-unico' },
-    { name: 'Conjunto Preto', price: 115.00, description: 'Conjunto fitness tam. único (36-42), clássico preto', images: [], category: 'tamanho-unico' },
-    { name: 'Conjunto Short', price: 100.00, description: 'Conjunto fitness tam. único (36-42), top + short prático', images: [], category: 'tamanho-unico' },
-    { name: 'Macacão Preto', price: 150.00, description: 'Macacão fitness tam. único (36-42), visual poderoso', images: [], category: 'tamanho-unico' },
-    { name: 'Conjunto Bicolor', price: 139.00, description: 'Conjunto fitness tam. único (36-42), duas cores combinando', images: [], category: 'tamanho-unico' },
-    { name: 'Macacão Marrom', price: 150.00, description: 'Macacão fitness tam. único (36-42), cor tendência', images: [], category: 'tamanho-unico' },
+    // ===== TAMANHO ÚNICO (36/42) =====
+    { name: 'Conjunto Bege Short', price: 100.00, description: 'Top + short bege, visual clean e elegante para treino', images: ['assets/products/conjunto-bege-short-1.jpeg','assets/products/conjunto-bege-short-2.jpeg'], category: 'tamanho-unico', colors: [{name:'Branco',hex:'#ffffff'}] },
+    { name: 'Conjunto Cinza', price: 115.00, description: 'Top cropped + legging cinza, tecido macio e confortável', images: ['assets/products/conjunto-cinza-1.jpeg','assets/products/conjunto-cinza-2.jpeg'], category: 'tamanho-unico', colors: [{name:'Cinza',hex:'#6b7280'}] },
+    { name: 'Conjunto Azul Claro', price: 149.00, description: 'Top + legging azul claro, tecido brilhoso com compressão leve', images: ['assets/products/conjunto-azul-claro-1.jpeg','assets/products/conjunto-azul-claro-2.jpeg'], category: 'tamanho-unico', colors: [{name:'Azul',hex:'#2563eb'}] },
+    { name: 'Conjunto Azul Royal', price: 125.00, description: 'Top triângulo + short azul royal, estilo praiano fitness', images: ['assets/products/conjunto-azul-royal-1.jpeg','assets/products/conjunto-azul-royal-2.jpeg'], category: 'tamanho-unico', colors: [{name:'Azul',hex:'#2563eb'}] },
+    { name: 'Conjunto Dourado', price: 139.00, description: 'Top + short bike dourado, cor vibrante e tecido premium', images: ['assets/products/conjunto-dourado-1.jpeg'], category: 'tamanho-unico', colors: [{name:'Rosa',hex:'#e91e8c'}] },
+    { name: 'Conjunto Creme', price: 149.00, description: 'Top + legging creme, visual sofisticado e confortável', images: ['assets/products/conjunto-creme-1.jpeg','assets/products/conjunto-creme-2.jpeg'], category: 'tamanho-unico', colors: [{name:'Branco',hex:'#ffffff'}] },
+    { name: 'Conjunto Oliva Short', price: 100.00, description: 'Top cropped + short bike verde oliva, tecido canelado', images: ['assets/products/conjunto-oliva-1.jpeg','assets/products/conjunto-oliva-2.jpeg','assets/products/conjunto-oliva-3.jpeg'], category: 'tamanho-unico', colors: [{name:'Verde',hex:'#16a34a'}] },
+    { name: 'Macaquinho Rosa', price: 115.00, description: 'Macaquinho rosa claro com detalhe nas costas trançado', images: ['assets/products/macaquinho-rosa-1.jpeg','assets/products/macaquinho-rosa-2.jpeg'], category: 'tamanho-unico', colors: [{name:'Rosa',hex:'#e91e8c'}] },
+    { name: 'Conjunto Chumbo', price: 125.00, description: 'Regata + legging chumbo com detalhe branco, estilo esportivo', images: ['assets/products/conjunto-chumbo-1.jpeg','assets/products/conjunto-chumbo-2.jpeg'], category: 'tamanho-unico', colors: [{name:'Cinza',hex:'#6b7280'}] },
+    { name: 'Macacão Verde Água', price: 150.00, description: 'Macacão menta/verde água com costas abertas cruzadas, peça única elegante', images: ['assets/products/macacao-verde-agua-1.jpeg','assets/products/macacao-verde-agua-2.jpeg','assets/products/macacao-verde-agua-3.jpeg'], category: 'tamanho-unico', colors: [{name:'Verde Água',hex:'#2dd4bf'}] },
+    { name: 'Macaquinho Marinho', price: 115.00, description: 'Macaquinho azul marinho texturizado com costas abertas', images: ['assets/products/macaquinho-marinho-1.jpeg','assets/products/macaquinho-marinho-2.jpeg'], category: 'tamanho-unico', colors: [{name:'Azul Marinho',hex:'#1e3a5f'}] },
+    { name: 'Macaquinho Marsala', price: 115.00, description: 'Macaquinho cor marsala texturizado com detalhe nas costas', images: ['assets/products/macaquinho-marsala-1.jpeg','assets/products/macaquinho-marsala-2.jpeg'], category: 'tamanho-unico', colors: [{name:'Vermelho',hex:'#dc2626'}] },
+    { name: 'Conjunto Marinho', price: 139.00, description: 'Top + legging azul marinho com costas abertas, clássico e elegante', images: ['assets/products/conjunto-marinho-1.jpeg','assets/products/conjunto-marinho-2.jpeg'], category: 'tamanho-unico', colors: [{name:'Azul Marinho',hex:'#1e3a5f'}] },
+    { name: 'Macacão Preto', price: 150.00, description: 'Macacão preto com costas cruzadas, visual poderoso e versátil', images: ['assets/products/macacao-preto-1.jpeg','assets/products/macacao-preto-2.jpeg'], category: 'tamanho-unico', colors: [{name:'Preto',hex:'#000000'}] },
+    { name: 'Conjunto Bege Cropped', price: 125.00, description: 'Top cropped + short bege com costas trançadas', images: ['assets/products/conjunto-bege-crop-1.jpeg','assets/products/conjunto-bege-crop-2.jpeg'], category: 'tamanho-unico', colors: [{name:'Branco',hex:'#ffffff'}] },
+    { name: 'Macacão Sage', price: 150.00, description: 'Macacão verde sage texturizado com costas abertas', images: ['assets/products/macacao-sage-1.jpeg','assets/products/macacao-sage-2.jpeg'], category: 'tamanho-unico', colors: [{name:'Verde',hex:'#16a34a'}] },
+    { name: 'Macaquinho Menta', price: 115.00, description: 'Macaquinho menta/verde claro com costas cruzadas', images: ['assets/products/macaquinho-menta-1.jpeg','assets/products/macaquinho-menta-2.jpeg'], category: 'tamanho-unico', colors: [{name:'Verde Água',hex:'#2dd4bf'}] },
+    { name: 'Conjunto Bicolor', price: 139.00, description: 'Top verde + short roxo bicolor, estilo moderno e ousado', images: ['assets/products/conjunto-bicolor-1.jpeg','assets/products/conjunto-bicolor-2.jpeg'], category: 'tamanho-unico', colors: [{name:'Verde',hex:'#16a34a'},{name:'Roxo',hex:'#7c3aed'}] },
+    { name: 'Macacão Manga Longa Menta', price: 150.00, description: 'Macacão manga longa verde menta, proteção e estilo para treino', images: ['assets/products/macacao-manga-longa-1.jpeg','assets/products/macacao-manga-longa-2.jpeg'], category: 'tamanho-unico', colors: [{name:'Verde Água',hex:'#2dd4bf'}] },
+    { name: 'Conjunto Preto Detalhe Branco', price: 125.00, description: 'Top + short preto com detalhe branco, esportivo e estiloso', images: ['assets/products/conjunto-preto-branco-1.jpeg','assets/products/conjunto-preto-branco-2.jpeg'], category: 'tamanho-unico', colors: [{name:'Preto',hex:'#000000'},{name:'Branco',hex:'#ffffff'}] },
+    { name: 'Conjunto Marinho Detalhe Branco', price: 125.00, description: 'Top + short azul marinho com detalhe branco', images: ['assets/products/conjunto-marinho-branco-1.jpeg','assets/products/conjunto-marinho-branco-2.jpeg'], category: 'tamanho-unico', colors: [{name:'Azul Marinho',hex:'#1e3a5f'},{name:'Branco',hex:'#ffffff'}] },
 
-    // Blusas
+    // ===== BLUSAS =====
     { name: 'Blusa Tule', price: 44.99, description: 'Blusa com detalhe em tule, leve e estilosa', images: [], category: 'blusas' },
     { name: 'Blusa Tule Manga Longa', price: 59.90, description: 'Blusa tule manga longa, transparência elegante', images: [], category: 'blusas' },
     { name: 'Cropt Tule Pink', price: 39.90, description: 'Cropped tule na cor pink, perfeito para o treino', images: [], category: 'blusas' },
@@ -48,8 +61,8 @@ const defaultProducts = [
 class ProductsManager {
     constructor() {
         this.products = this.loadProducts();
-        // Reload defaults if products are the old set (4 items or less)
-        if (this.products.length <= 4) {
+        // Reload defaults if products don't have images yet
+        if (this.products.length === 0 || (this.products.length > 0 && !this.products[0].images?.some(i => i.startsWith('assets/')))) {
             this.loadDefaultProducts();
         }
     }
@@ -72,14 +85,16 @@ class ProductsManager {
         localStorage.setItem('torres_products', JSON.stringify(this.products));
     }
 
-    addProduct(name, price, description, images = []) {
+    addProduct(name, price, description, images = [], category = 'plus', colors = []) {
         if (!name || !price || !description) return false;
         this.products.push({
             id: Date.now(),
             name,
             price: parseFloat(price),
             description,
-            images: Array.isArray(images) ? images : [images].filter(Boolean)
+            images: Array.isArray(images) ? images : [images].filter(Boolean),
+            category,
+            colors
         });
         this.saveProducts();
         return true;
@@ -90,13 +105,15 @@ class ProductsManager {
         this.saveProducts();
     }
 
-    updateProduct(id, name, price, description, images) {
+    updateProduct(id, name, price, description, images, category, colors) {
         const product = this.products.find(p => p.id === id);
         if (product) {
             product.name = name;
             product.price = parseFloat(price);
             product.description = description;
             product.images = Array.isArray(images) ? images : [images].filter(Boolean);
+            product.category = category;
+            product.colors = colors;
             this.saveProducts();
             return true;
         }
@@ -424,7 +441,7 @@ let lightboxIndex = 0;
 function openLightbox(productId, startIndex = 0) {
     const product = productsManager.products.find(p => p.id === productId);
     if (!product) return;
-    const imgs = (product.images || []).filter(i => i.startsWith('data:') || i.startsWith('http'));
+    const imgs = (product.images || []).filter(i => i.startsWith('data:') || i.startsWith('http') || i.startsWith('assets/'));
     if (imgs.length === 0) return;
 
     lightboxImages = imgs;
@@ -462,6 +479,25 @@ function lightboxNav(dir) {
     lightboxIndex = (lightboxIndex + dir + lightboxImages.length) % lightboxImages.length;
     document.getElementById('lightboxImg').src = lightboxImages[lightboxIndex];
     document.getElementById('lightboxCounter').textContent = `${lightboxIndex + 1} / ${lightboxImages.length}`;
+}
+
+// ========== Category Filter ==========
+const PRODUCTS_PER_PAGE = 8;
+let productsShown = PRODUCTS_PER_PAGE;
+let currentCategory = 'all';
+
+function filterCategory(category) {
+    currentCategory = category;
+    productsShown = PRODUCTS_PER_PAGE;
+    document.querySelectorAll('.category-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.textContent === getCategoryLabel(category));
+    });
+    renderProducts();
+}
+
+function getCategoryLabel(category) {
+    const labels = { 'all': 'Todos', 'plus': 'Plus Size', 'tamanho-unico': 'Tamanho 36 ao 42', 'blusas': 'Blusas' };
+    return labels[category] || 'Todos';
 }
 
 // ========== Initialize ==========
@@ -507,17 +543,30 @@ function goToProductSlide(productId, index) {
 }
 
 // ========== Render Products ==========
+
 function renderProducts() {
     if (!productsGrid) return;
 
-    productsGrid.innerHTML = productsManager.products.map(product => {
+    const filtered = currentCategory === 'all'
+        ? productsManager.products
+        : productsManager.products.filter(p => p.category === currentCategory);
+
+    if (filtered.length === 0) {
+        productsGrid.innerHTML = '<p style="text-align:center;color:#999;grid-column:1/-1;padding:40px;">Nenhum produto nessa categoria.</p>';
+        removeLoadMoreBtn();
+        return;
+    }
+
+    const visible = filtered.slice(0, productsShown);
+
+    productsGrid.innerHTML = visible.map(product => {
         const imgs = product.images || [];
-        const hasImages = imgs.length > 0 && imgs.some(i => i.startsWith('data:') || i.startsWith('http'));
+        const hasImages = imgs.length > 0 && imgs.some(i => i.startsWith('data:') || i.startsWith('http') || i.startsWith('assets/'));
         const safeName = product.name.replace(/'/g, "\\'");
 
         let imageHtml;
         if (hasImages) {
-            const realImages = imgs.filter(i => i.startsWith('data:') || i.startsWith('http'));
+            const realImages = imgs.filter(i => i.startsWith('data:') || i.startsWith('http') || i.startsWith('assets/'));
             if (realImages.length === 1) {
                 imageHtml = `<div class="product-image" style="padding:0;cursor:pointer;" onclick="openLightbox(${product.id})"><img src="${realImages[0]}" alt="${product.name}" style="width:100%;height:100%;object-fit:cover;"></div>`;
             } else {
@@ -540,15 +589,29 @@ function renderProducts() {
             imageHtml = `<div class="product-image">${product.name}</div>`;
         }
 
+        const colorsHtml = (product.colors && product.colors.length > 0)
+            ? `<div class="product-colors">${product.colors.map(c =>
+                `<span class="product-color-dot" style="background:${c.hex}${c.hex === '#ffffff' ? ';border-color:#ccc' : ''}" title="${c.name}"></span>`
+              ).join('')}</div>`
+            : '';
+
         return `
         <div class="product-card">
             ${imageHtml}
             <h3 class="product-name">${product.name}</h3>
             <p class="product-description">${product.description}</p>
+            ${colorsHtml}
             <p class="product-price">R$ ${product.price.toFixed(2).replace('.', ',')}</p>
             <button class="btn btn-secondary" onclick="addToCart('${safeName}', ${product.price})">Adicionar ao Carrinho</button>
         </div>`;
     }).join('');
+
+    // Show/hide "Ver mais" button
+    if (filtered.length > productsShown) {
+        showLoadMoreBtn(filtered.length - productsShown);
+    } else {
+        removeLoadMoreBtn();
+    }
 
     document.querySelectorAll('.product-card').forEach(card => {
         card.style.opacity = '0';
@@ -557,6 +620,29 @@ function renderProducts() {
         observer.observe(card);
     });
 }
+
+function showLoadMoreBtn(remaining) {
+    let btn = document.getElementById('loadMoreBtn');
+    if (!btn) {
+        btn = document.createElement('button');
+        btn.id = 'loadMoreBtn';
+        btn.className = 'btn btn-primary load-more-btn';
+        btn.onclick = loadMoreProducts;
+        productsGrid.parentElement.appendChild(btn);
+    }
+    btn.textContent = `Ver mais produtos (${remaining} restantes)`;
+}
+
+function removeLoadMoreBtn() {
+    const btn = document.getElementById('loadMoreBtn');
+    if (btn) btn.remove();
+}
+
+function loadMoreProducts() {
+    productsShown += PRODUCTS_PER_PAGE;
+    renderProducts();
+}
+
 
 // ========== Product Templates ==========
 const productTemplates = {
@@ -628,6 +714,20 @@ function resetImageUpload() {
     if (fileInput) fileInput.value = '';
 }
 
+function getSelectedColors() {
+    const checks = document.querySelectorAll('#colorOptions input:checked');
+    return Array.from(checks).map(c => ({ name: c.value, hex: c.dataset.color }));
+}
+
+function setSelectedColors(colors) {
+    document.querySelectorAll('#colorOptions input').forEach(c => c.checked = false);
+    if (!colors || !colors.length) return;
+    colors.forEach(color => {
+        const input = document.querySelector(`#colorOptions input[value="${color.name}"]`);
+        if (input) input.checked = true;
+    });
+}
+
 function fillTemplate(type) {
     const t = productTemplates[type];
     if (!t) return;
@@ -653,14 +753,16 @@ function initializeAdmin() {
             const name = document.getElementById('productName').value.trim();
             const price = document.getElementById('productPrice').value;
             const description = document.getElementById('productDescription').value.trim();
+            const category = document.getElementById('productCategory').value;
+            const colors = getSelectedColors();
 
             if (editId) {
-                if (productsManager.updateProduct(parseInt(editId), name, price, description, pendingImages)) {
+                if (productsManager.updateProduct(parseInt(editId), name, price, description, pendingImages, category, colors)) {
                     showNotification(`${name} atualizado!`);
                     cancelEdit();
                 }
             } else {
-                if (productsManager.addProduct(name, price, description, pendingImages)) {
+                if (productsManager.addProduct(name, price, description, pendingImages, category, colors)) {
                     showNotification(`${name} adicionado!`);
                     form.reset();
                     resetImageUpload();
@@ -713,6 +815,8 @@ function editProduct(productId) {
     document.getElementById('productName').value = product.name;
     document.getElementById('productPrice').value = product.price;
     document.getElementById('productDescription').value = product.description;
+    document.getElementById('productCategory').value = product.category || 'plus';
+    setSelectedColors(product.colors || []);
 
     pendingImages = [...(product.images || [])];
     renderImagesPreview();
@@ -735,6 +839,7 @@ function cancelEdit() {
     const form = document.getElementById('addProductForm');
     if (form) form.reset();
     resetImageUpload();
+    setSelectedColors([]);
 }
 
 function duplicateProduct(productId) {
@@ -759,11 +864,11 @@ function updateAdminProductsList() {
 
     list.innerHTML = productsManager.products.map(product => {
         const imgs = product.images || [];
-        const firstReal = imgs.find(i => i.startsWith('data:') || i.startsWith('http'));
+        const firstReal = imgs.find(i => i.startsWith('data:') || i.startsWith('http') || i.startsWith('assets/'));
         const thumbContent = firstReal
             ? `<img src="${firstReal}" alt="${product.name}">`
             : product.name.charAt(0);
-        const photoCount = imgs.filter(i => i.startsWith('data:') || i.startsWith('http')).length;
+        const photoCount = imgs.filter(i => i.startsWith('data:') || i.startsWith('http') || i.startsWith('assets/')).length;
         const photoLabel = photoCount > 0 ? `<span class="admin-photo-count">${photoCount} foto${photoCount > 1 ? 's' : ''}</span>` : '';
 
         return `
@@ -811,14 +916,14 @@ function clearAllProducts() {
 if (adminModal) adminModal.addEventListener('click', (e) => { if (e.target === adminModal) closeAdminPanel(); });
 
 // ========== Checkout System ==========
-const checkoutModal = document.getElementById('checkoutModal');
-
 function openCheckout() {
     if (cart.items.length === 0) {
         showNotification('Adicione produtos primeiro!', 'error');
         return;
     }
     closeCart();
+
+    const modal = document.getElementById('checkoutModal');
 
     // Populate order summary
     const itemsEl = document.getElementById('checkoutItems');
@@ -838,19 +943,17 @@ function openCheckout() {
     if (pixKeyDisplay) pixKeyDisplay.value = PIX_KEY;
     generatePixQrCode();
 
-    // Build WhatsApp link with order details
-    updateCheckoutWhatsApp();
-
     // Show modal
-    if (checkoutModal) {
-        checkoutModal.classList.add('active');
+    if (modal) {
+        modal.classList.add('active');
         document.body.style.overflow = 'hidden';
     }
 }
 
 function closeCheckout() {
-    if (checkoutModal) {
-        checkoutModal.classList.remove('active');
+    const modal = document.getElementById('checkoutModal');
+    if (modal) {
+        modal.classList.remove('active');
         document.body.style.overflow = '';
     }
 }
@@ -878,25 +981,93 @@ function copyPixKey() {
     });
 }
 
-function updateCheckoutWhatsApp() {
-    const link = document.getElementById('checkoutWhatsApp');
-    if (!link) return;
+function getCheckoutAddress() {
+    return {
+        nome: document.getElementById('checkoutNome')?.value.trim() || '',
+        telefone: document.getElementById('checkoutTelefone')?.value.trim() || '',
+        cep: document.getElementById('checkoutCep')?.value.trim() || '',
+        rua: document.getElementById('checkoutRua')?.value.trim() || '',
+        numero: document.getElementById('checkoutNumero')?.value.trim() || '',
+        complemento: document.getElementById('checkoutComplemento')?.value.trim() || '',
+        bairro: document.getElementById('checkoutBairro')?.value.trim() || '',
+        cidade: document.getElementById('checkoutCidade')?.value.trim() || '',
+        uf: document.getElementById('checkoutUf')?.value.trim().toUpperCase() || ''
+    };
+}
 
+function validateCheckout() {
+    const addr = getCheckoutAddress();
+    const missing = [];
+    if (!addr.nome) missing.push('Nome');
+    if (!addr.telefone) missing.push('Telefone');
+    if (!addr.cep) missing.push('CEP');
+    if (!addr.rua) missing.push('Rua');
+    if (!addr.numero) missing.push('Número');
+    if (!addr.bairro) missing.push('Bairro');
+    if (!addr.cidade) missing.push('Cidade');
+    if (!addr.uf) missing.push('UF');
+
+    if (missing.length > 0) {
+        showNotification(`Preencha: ${missing.join(', ')}`, 'error');
+        return false;
+    }
+    return true;
+}
+
+function sendCheckoutWhatsApp(e) {
+    if (!validateCheckout()) {
+        e.preventDefault();
+        return;
+    }
+
+    const addr = getCheckoutAddress();
     const total = cart.getTotal().toFixed(2).replace('.', ',');
     let msg = `Ola! Gostaria de finalizar meu pedido:\n\n`;
     cart.items.forEach(item => {
         msg += `• ${item.name} (x${item.quantity}) - R$ ${(item.price * item.quantity).toFixed(2).replace('.', ',')}\n`;
     });
-    msg += `\n*Total: R$ ${total}*\n\nVou pagar via PIX. Aguardo confirmacao!`;
-    link.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+    msg += `\n*Total: R$ ${total}*\n`;
+    msg += `\n*Endereco de entrega:*\n`;
+    msg += `${addr.nome}\n`;
+    msg += `${addr.rua}, ${addr.numero}`;
+    if (addr.complemento) msg += ` - ${addr.complemento}`;
+    msg += `\n${addr.bairro}\n`;
+    msg += `${addr.cidade} - ${addr.uf}\n`;
+    msg += `CEP: ${addr.cep}\n`;
+    msg += `Tel: ${addr.telefone}\n`;
+    msg += `\nVou pagar via PIX. Aguardo confirmacao!`;
+
+    const link = document.getElementById('checkoutWhatsApp');
+    if (link) link.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
 }
 
-// Close checkout modal on outside click
-if (checkoutModal) {
-    checkoutModal.addEventListener('click', (e) => {
-        if (e.target === checkoutModal) closeCheckout();
-    });
+// Busca automatica de CEP
+function buscarCep(cep) {
+    cep = cep.replace(/\D/g, '');
+    if (cep.length !== 8) return;
+
+    fetch(`https://viacep.com.br/ws/${cep}/json/`)
+        .then(r => r.json())
+        .then(data => {
+            if (data.erro) return;
+            if (data.logradouro) document.getElementById('checkoutRua').value = data.logradouro;
+            if (data.bairro) document.getElementById('checkoutBairro').value = data.bairro;
+            if (data.localidade) document.getElementById('checkoutCidade').value = data.localidade;
+            if (data.uf) document.getElementById('checkoutUf').value = data.uf;
+        })
+        .catch(() => {});
 }
+
+// Attach click validation to WhatsApp button
+document.addEventListener('DOMContentLoaded', () => {
+    const whatsBtn = document.getElementById('checkoutWhatsApp');
+    if (whatsBtn) whatsBtn.addEventListener('click', sendCheckoutWhatsApp);
+});
+
+// Close checkout modal on outside click
+document.addEventListener('click', (e) => {
+    if (e.target && e.target.id === 'checkoutModal') closeCheckout();
+});
 
 // ========== Scroll Animations ==========
 const observer = new IntersectionObserver((entries) => {
