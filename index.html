@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Torres Fitwear - Roupas fitness premium para mulheres que buscam força, estilo e confiança em cada movimento.">
+    <meta name="keywords" content="roupas fitness, leggings, tops fitness, mulheres, premium">
+    <meta name="author" content="Torres Fitwear">
+    <meta property="og:title" content="Torres Fitwear - Roupas Fitness Premium">
+    <meta property="og:description" content="Descubra nossa coleção de roupas fitness premium para mulheres empoderadas.">
+    <meta property="og:type" content="website">
+    <title>Torres Fitwear - Roupas Fitness Premium para Mulheres</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💜</text></svg>">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Admin Panel (Full Screen) -->
+    <div id="adminModal" class="admin-panel-overlay">
+        <div class="admin-panel">
+            <div class="admin-panel-header">
+                <div class="admin-panel-title">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                    <h2>Gerenciar Produtos</h2>
+                </div>
+                <button class="admin-panel-close" onclick="closeAdminPanel()">&times;</button>
+            </div>
+
+            <div class="admin-panel-body">
+                <!-- Left: Add/Edit Product -->
+                <div class="admin-panel-left">
+                    <div class="admin-panel-section">
+                        <h3 id="adminFormTitle">Adicionar Produto</h3>
+
+                        <!-- Quick Templates -->
+                        <p class="admin-hint">Clique para preencher automaticamente:</p>
+                        <div class="quick-templates">
+                            <button class="quick-template-btn" onclick="fillTemplate('legging')">Legging</button>
+                            <button class="quick-template-btn" onclick="fillTemplate('top')">Top</button>
+                            <button class="quick-template-btn" onclick="fillTemplate('short')">Short</button>
+                            <button class="quick-template-btn" onclick="fillTemplate('jaqueta')">Jaqueta</button>
+                            <button class="quick-template-btn" onclick="fillTemplate('conjunto')">Conjunto</button>
+                            <button class="quick-template-btn" onclick="fillTemplate('calcinha')">Calcinha</button>
+                            <button class="quick-template-btn" onclick="fillTemplate('macacao')">Macacão</button>
+                        </div>
+
+                        <!-- Product Form -->
+                        <form id="addProductForm" class="admin-product-form">
+                            <input type="hidden" id="editProductId" value="">
+
+                            <label for="productName">Nome do Produto</label>
+                            <input type="text" id="productName" placeholder="Ex: Legging Power" required>
+
+                            <label for="productPrice">Preço (R$)</label>
+                            <input type="number" id="productPrice" placeholder="Ex: 189.90" step="0.01" min="0" required>
+
+                            <label for="productDescription">Descrição</label>
+                            <textarea id="productDescription" placeholder="Ex: Cintura alta, tecido premium..." rows="3" required></textarea>
+
+                            <label>Fotos do Produto <span class="admin-hint" style="display:inline;margin:0;">(adicione quantas quiser)</span></label>
+
+                            <!-- Uploaded images preview -->
+                            <div class="images-preview-list" id="imagesPreviewList"></div>
+
+                            <!-- Upload area -->
+                            <div class="image-upload-area" id="imageUploadArea">
+                                <div class="image-upload-placeholder" id="imageUploadPlaceholder">
+                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                                    <p>Arraste fotos aqui</p>
+                                    <span>ou clique para escolher (pode selecionar varias)</span>
+                                </div>
+                                <input type="file" id="imageFileInput" accept="image/*" multiple style="display:none;">
+                            </div>
+                            <div class="image-url-row">
+                                <input type="text" id="productImageUrl" placeholder="Ou cole a URL de uma foto...">
+                                <button type="button" class="btn-preview-url" onclick="addImageFromUrl()">+ Adicionar</button>
+                            </div>
+
+                            <div class="admin-form-buttons">
+                                <button type="submit" class="btn btn-primary admin-save-btn" id="adminSaveBtn">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    Adicionar Produto
+                                </button>
+                                <button type="button" class="btn btn-secondary" id="adminCancelEdit" onclick="cancelEdit()" style="display:none;">Cancelar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Right: Products List -->
+                <div class="admin-panel-right">
+                    <div class="admin-panel-section">
+                        <div class="admin-list-header">
+                            <h3>Produtos (<span id="productCount">0</span>)</h3>
+                            <div class="admin-list-actions">
+                                <button class="admin-action-btn" onclick="loadDefaultProducts()" title="Carregar padrão">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg>
+                                    Padrão
+                                </button>
+                                <button class="admin-action-btn danger" onclick="clearAllProducts()" title="Limpar todos">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                                    Limpar
+                                </button>
+                            </div>
+                        </div>
+                        <div id="adminProductsList" class="admin-products-grid"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="cart-modal">
+        <div class="cart-modal-content">
+            <button class="cart-close" onclick="closeCart()">&times;</button>
+            <h2>Seu Carrinho</h2>
+            <div id="cartItems" class="cart-items">
+                <!-- Itens do carrinho carregados via JS -->
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span id="cartTotal">R$ 0,00</span>
+                </div>
+                <button class="btn btn-primary cart-checkout-btn" onclick="openCheckout()">Finalizar Compra</button>
+                <button class="btn btn-secondary cart-clear-btn" onclick="checkoutWhatsApp()">Consultar pelo WhatsApp</button>
+                <button class="btn btn-secondary cart-clear-btn" onclick="clearCart()" style="font-size:0.8rem;padding:8px;">Limpar Carrinho</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div id="checkoutModal" class="checkout-modal">
+        <div class="checkout-content">
+            <button class="checkout-close" onclick="closeCheckout()">&times;</button>
+            <h2>Finalizar Compra</h2>
+
+            <!-- Order Summary -->
+            <div class="checkout-summary">
+                <div class="checkout-summary-items" id="checkoutItems"></div>
+                <div class="checkout-summary-total">
+                    <span>Total:</span>
+                    <strong id="checkoutTotal">R$ 0,00</strong>
+                </div>
+            </div>
+
+            <!-- PIX Payment -->
+            <h3>Pagamento via PIX</h3>
+
+            <div class="pix-section">
+                <div class="pix-qr-area">
+                    <img id="pixQrCode" class="pix-qr-img" src="" alt="QR Code PIX">
+                    <p>Escaneie o QR Code com seu app de banco</p>
+                </div>
+                <div class="pix-copy-area">
+                    <label>Ou copie a chave PIX:</label>
+                    <div class="pix-key-row">
+                        <input type="text" id="pixKeyDisplay" value="" readonly>
+                        <button class="btn-copy" onclick="copyPixKey()">Copiar Chave</button>
+                    </div>
+                </div>
+                <div class="pix-instructions">
+                    <p><strong>Como pagar:</strong></p>
+                    <ol>
+                        <li>Abra o app do seu banco</li>
+                        <li>Escolha pagar com PIX</li>
+                        <li>Escaneie o QR Code ou cole a chave</li>
+                        <li>Confirme o valor e pague</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Finalizar no WhatsApp -->
+            <a id="checkoutWhatsApp" href="#" target="_blank" rel="noopener" class="btn btn-primary checkout-whatsapp-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.612.616l4.584-1.458A11.947 11.947 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.24 0-4.326-.654-6.085-1.783l-.427-.276-3.168 1.008 1.032-3.096-.296-.443A9.953 9.953 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
+                Enviar Pedido pelo WhatsApp
+            </a>
+        </div>
+    </div>
+
+    <!-- Size Guide Modal -->
+    <div id="sizeGuideModal" class="size-guide-modal">
+        <div class="size-guide-content">
+            <button class="size-guide-close" onclick="closeSizeGuide()">&times;</button>
+            <h2>Guia de Tamanhos</h2>
+            <p class="size-guide-intro">Encontre o tamanho perfeito para você. Meça-se com uma fita métrica e compare com a tabela abaixo.</p>
+
+            <div class="size-tabs">
+                <button class="size-tab active" onclick="switchSizeTab('tops')">Tops & Jaquetas</button>
+                <button class="size-tab" onclick="switchSizeTab('bottoms')">Leggings & Shorts</button>
+            </div>
+
+            <div id="sizeTableTops" class="size-table-container">
+                <table class="size-table">
+                    <thead>
+                        <tr>
+                            <th>Tamanho</th>
+                            <th>Busto (cm)</th>
+                            <th>Cintura (cm)</th>
+                            <th>Comprimento (cm)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>PP</td><td>78-82</td><td>60-64</td><td>55</td></tr>
+                        <tr><td>P</td><td>83-87</td><td>65-69</td><td>57</td></tr>
+                        <tr><td>M</td><td>88-92</td><td>70-74</td><td>59</td></tr>
+                        <tr><td>G</td><td>93-97</td><td>75-79</td><td>61</td></tr>
+                        <tr><td>GG</td><td>98-102</td><td>80-84</td><td>63</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="sizeTableBottoms" class="size-table-container" style="display:none;">
+                <table class="size-table">
+                    <thead>
+                        <tr>
+                            <th>Tamanho</th>
+                            <th>Cintura (cm)</th>
+                            <th>Quadril (cm)</th>
+                            <th>Comprimento (cm)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>PP</td><td>60-64</td><td>86-90</td><td>95</td></tr>
+                        <tr><td>P</td><td>65-69</td><td>91-95</td><td>97</td></tr>
+                        <tr><td>M</td><td>70-74</td><td>96-100</td><td>99</td></tr>
+                        <tr><td>G</td><td>75-79</td><td>101-105</td><td>101</td></tr>
+                        <tr><td>GG</td><td>80-84</td><td>106-110</td><td>103</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="size-guide-tips">
+                <h4>Dicas de Medição</h4>
+                <ul>
+                    <li><strong>Busto:</strong> Meça na parte mais larga do peito</li>
+                    <li><strong>Cintura:</strong> Meça na parte mais estreita da cintura</li>
+                    <li><strong>Quadril:</strong> Meça na parte mais larga do quadril</li>
+                    <li>Se estiver entre dois tamanhos, escolha o maior para mais conforto</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Floating Button -->
+    <button class="admin-float-btn" onclick="openAdminPanel()" title="Gerenciar Produtos">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+    </button>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="assets/logo.png" alt="Torres Fitwear" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="logo-text" style="display:none;">
+                    <h1>TORRES<span class="logo-dot">.</span></h1>
+                    <p class="tagline">Empoderamento em Movimento</p>
+                </div>
+            </div>
+            <nav class="nav">
+                <button class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#products">Produtos</a></li>
+                    <li><a href="#testimonials">Avaliações</a></li>
+                    <li><a href="#about">Sobre</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                </ul>
+                <!-- Cart Icon -->
+                <button class="cart-icon" id="cartIcon" onclick="openCart()" title="Ver carrinho">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-bg">
+            <img src="assets/hero.jpg" alt="" class="hero-bg-img" onerror="this.style.display='none';">
+        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h2>Sua Força, Seu Estilo</h2>
+                <p>Roupas fitness premium que acompanham sua jornada</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary glow" onclick="document.getElementById('products').scrollIntoView({ behavior: 'smooth' })">Explorar Coleção</button>
+                    <button class="btn btn-secondary" onclick="openSizeGuide()">Guia de Tamanhos</button>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="floating-shape shape-1"></div>
+                <div class="floating-shape shape-2"></div>
+                <div class="floating-shape shape-3"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <div class="container">
+            <h2 class="section-title">Coleção Essencial</h2>
+            <p class="section-subtitle">Roupas que fortalecem sua confiança a cada movimento</p>
+            <div class="products-grid" id="productsGrid">
+                <!-- Produtos carregados dinamicamente via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title">O Que Nossas Clientes Dizem</h2>
+            <p class="section-subtitle">Mulheres reais, resultados reais</p>
+            <div class="testimonials-slider" id="testimonialsSlider">
+                <div class="testimonial-card active">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"A legging Essência é simplesmente perfeita! O tecido é macio, não marca e tem uma compressão incrível. Uso para treinar e para o dia a dia."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">C</div>
+                        <div>
+                            <strong>Carolina M.</strong>
+                            <span>Comprou: Legging Essência</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"O Top Força dá um suporte incrível! Faço crossfit e ele não sai do lugar. Além disso, é lindo demais. Já comprei em 3 cores!"</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">A</div>
+                        <div>
+                            <strong>Amanda R.</strong>
+                            <span>Comprou: Top Força</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"A jaqueta Visão é perfeita pra quem corre de manhã cedo. Leve, corta vento e super estilosa. Recebo elogios toda vez que uso!"</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">F</div>
+                        <div>
+                            <strong>Fernanda S.</strong>
+                            <span>Comprou: Jaqueta Visão</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"O short Movimento é o mais confortável que já usei. Os bolsos são profundos de verdade e o tecido seca rapidíssimo. Recomendo demais!"</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">J</div>
+                        <div>
+                            <strong>Juliana P.</strong>
+                            <span>Comprou: Short Movimento</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonials-nav">
+                <button class="testimonial-nav-btn" onclick="changeTestimonial(-1)">&#8592;</button>
+                <div class="testimonial-dots" id="testimonialDots"></div>
+                <button class="testimonial-nav-btn" onclick="changeTestimonial(1)">&#8594;</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">Mulheres em Movimento</h2>
+            <div class="about-content">
+                <div class="about-image-large">
+                    <img src="assets/about.jpg" alt="Mulher treinando - Torres Fitwear" class="about-real-img">
+                </div>
+                <div class="about-text">
+                    <h3>Confiança em Cada Passo</h3>
+                    <p>Torres Fitwear nasceu da paixão de mulheres que acreditam no poder da transformação. Aqui você encontra roupas que acompanham sua força, seu ritmo e sua visão de futuro.</p>
+                    <div class="benefits">
+                        <div class="benefit-item">
+                            <span class="benefit-icon">✦</span>
+                            <p><strong>Tecnologia Futurista</strong> - Tecidos inovadores para máximo desempenho</p>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">✦</span>
+                            <p><strong>Conforto Total</strong> - Design pensado no corpo da mulher</p>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">✦</span>
+                            <p><strong>Autoconfiança</strong> - Se sinta poderosa em qualquer lugar</p>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">✦</span>
+                            <p><strong>Sustentabilidade</strong> - Comprometidas com o planeta</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Entre em Contato</h2>
+            <form class="contact-form" id="contactForm">
+                <input type="text" placeholder="Seu Nome" required>
+                <input type="email" placeholder="Seu Email" required>
+                <textarea placeholder="Sua Mensagem" rows="5" required></textarea>
+                <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>TORRES<span style="color: var(--accent-purple)">.</span></h4>
+                    <p>Roupas fitness premium para mulheres que buscam força, estilo e confiança.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Menu</h4>
+                    <ul>
+                        <li><a href="#products">Produtos</a></li>
+                        <li><a href="#testimonials">Avaliações</a></li>
+                        <li><a href="#about">Sobre</a></li>
+                        <li><a href="#contact">Contato</a></li>
+                        <li><a href="#" onclick="openSizeGuide(); return false;">Guia de Tamanhos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Siga-nos</h4>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/torresfitwear01?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener" class="social-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                            Instagram
+                        </a>
+                        <a href="https://tiktok.com/@torresfitwear" target="_blank" rel="noopener" class="social-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1 0-5.78 2.92 2.92 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 3 15.57 6.33 6.33 0 0 0 9.37 22a6.33 6.33 0 0 0 6.38-6.2V8.93a8.16 8.16 0 0 0 4.84 1.58V7.06a4.84 4.84 0 0 1-1-.37z"/></svg>
+                            TikTok
+                        </a>
+                        <a href="https://pinterest.com/torresfitwear" target="_blank" rel="noopener" class="social-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0a12 12 0 0 0-4.37 23.17c-.1-.94-.2-2.4.04-3.44l1.43-6.07s-.37-.73-.37-1.82c0-1.7.99-2.97 2.22-2.97 1.05 0 1.55.78 1.55 1.72 0 1.05-.67 2.62-1.01 4.07-.29 1.21.61 2.2 1.8 2.2 2.16 0 3.82-2.28 3.82-5.57 0-2.91-2.09-4.95-5.08-4.95-3.46 0-5.49 2.6-5.49 5.28 0 1.05.4 2.17.91 2.78a.36.36 0 0 1 .08.35l-.34 1.36c-.05.22-.18.27-.41.16-1.53-.71-2.49-2.95-2.49-4.75 0-3.87 2.81-7.42 8.11-7.42 4.26 0 7.57 3.03 7.57 7.1 0 4.23-2.67 7.63-6.37 7.63-1.24 0-2.41-.65-2.81-1.41l-.77 2.92c-.28 1.07-1.03 2.41-1.53 3.23A12 12 0 1 0 12 0z"/></svg>
+                            Pinterest
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Torres Fitwear. Feito com 💜 para mulheres fortes.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/5527992669457?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20produtos%20Torres%20Fitwear!" target="_blank" rel="noopener" class="whatsapp-float" title="Fale conosco no WhatsApp">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+    </a>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
