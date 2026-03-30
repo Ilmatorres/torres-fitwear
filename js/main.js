@@ -1157,6 +1157,93 @@ function atualizarTotalComFrete() {
     }
 }
 
+// ========== Payment Tabs ==========
+function switchPayment(type) {
+    document.querySelectorAll('.payment-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.payment-panel').forEach(p => p.classList.remove('active'));
+
+    if (type === 'pix') {
+        document.querySelector('.payment-tab:first-child').classList.add('active');
+        document.getElementById('paymentPix').classList.add('active');
+    } else {
+        document.querySelector('.payment-tab:last-child').classList.add('active');
+        document.getElementById('paymentCartao').classList.add('active');
+    }
+}
+
+// ========== Mercado Pago - Cartão ==========
+function pagarComCartao() {
+    if (!validateCheckout()) return;
+
+    const addr = getCheckoutAddress();
+    if (freteAtual === 0 && addr.uf) calcularFrete(addr.uf);
+
+    const btn = document.getElementById('btnPagarCartao');
+    if (btn) {
+        btn.disabled = true;
+        btn.innerHTML = '<span class="spinner"></span> Processando...';
+    }
+
+    const payload = {
+        items: cart.items.map(item => ({
+            name: item.name,
+            quantity: item.quantity,
+            price: item.price
+        })),
+        payer: {
+            name: addr.nome,
+            phone: addr.telefone,
+            cep: addr.cep,
+            street: addr.rua,
+            number: addr.numero
+        },
+        shipment: {
+            cost: freteAtual
+        }
+    };
+
+    fetch('/.netlify/functions/create-preference', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+    })
+    .then(r => r.json())
+    .then(data => {
+        if (data.init_point) {
+            window.location.href = data.init_point;
+        } else if (data.sandbox_init_point) {
+            window.location.href = data.sandbox_init_point;
+        } else {
+            showNotification('Erro ao criar pagamento. Tente via PIX.', 'error');
+            if (btn) { btn.disabled = false; btn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg> Pagar com Cartão'; }
+        }
+    })
+    .catch(err => {
+        console.error('Erro MP:', err);
+        showNotification('Erro de conexão. Tente via PIX.', 'error');
+        if (btn) { btn.disabled = false; btn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg> Pagar com Cartão'; }
+    });
+}
+
+// Check payment status on return
+window.addEventListener('load', () => {
+    const params = new URLSearchParams(window.location.search);
+    const status = params.get('status');
+    if (status === 'approved') {
+        showNotification('Pagamento aprovado! Obrigada pela compra! 💜');
+        cart.items = [];
+        cart.saveToStorage();
+        cart.updateCartBadge();
+        window.history.replaceState({}, '', window.location.pathname);
+    } else if (status === 'failure') {
+        showNotification('Pagamento não aprovado. Tente novamente.', 'error');
+        window.history.replaceState({}, '', window.location.pathname);
+    } else if (status === 'pending') {
+        showNotification('Pagamento pendente. Aguarde a confirmação.');
+        window.history.replaceState({}, '', window.location.pathname);
+    }
+});
+
 // Attach click validation to WhatsApp button
 document.addEventListener('DOMContentLoaded', () => {
     const whatsBtn = document.getElementById('checkoutWhatsApp');

@@ -1724,6 +1724,138 @@ body {
 }
 
 /* WhatsApp Checkout Button */
+/* Payment Tabs */
+.payment-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.payment-tab {
+    flex: 1;
+    padding: 12px 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    background: white;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #666;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.payment-tab:hover {
+    border-color: var(--primary-purple);
+    color: var(--primary-purple);
+}
+
+.payment-tab.active {
+    border-color: var(--primary-purple);
+    background: linear-gradient(135deg, #f3e8ff, #ede9fe);
+    color: var(--primary-purple);
+}
+
+.payment-panel {
+    display: none;
+}
+
+.payment-panel.active {
+    display: block;
+    animation: fadeInUp 0.3s ease;
+}
+
+/* Cartão Section */
+.cartao-section {
+    text-align: center;
+    padding: 20px;
+}
+
+.cartao-info {
+    background: linear-gradient(135deg, #eff6ff, #e0f2fe);
+    border: 1px solid #93c5fd;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 16px;
+    text-align: left;
+}
+
+.cartao-info p {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #1e40af;
+}
+
+.cartao-info ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cartao-info ul li {
+    padding: 4px 0;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+.cartao-info ul li::before {
+    content: '✓ ';
+    color: #16a34a;
+    font-weight: bold;
+}
+
+.cartao-pay-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 16px 24px;
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.cartao-pay-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+}
+
+.cartao-pay-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.cartao-secure {
+    font-size: 0.8rem;
+    color: #999;
+    margin-top: 12px;
+}
+
+.spinner {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
 .checkout-whatsapp-btn {
     display: flex;
     align-items: center;
