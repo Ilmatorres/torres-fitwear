@@ -1,8 +1,8 @@
 // ========== Configuration ==========
-// Substitua pela sua chave PIX real (CPF, email, telefone ou chave aleatória)
 const PIX_KEY = '27992669457';
-// Número WhatsApp (com código do país, sem + ou espaços)
 const WHATSAPP_NUMBER = '5527992669457';
+const MP_ACCESS_TOKEN = 'APP_USR-3466812974287831-032920-a983d7de2b577fb07b1867d00e68e820-3302020500';
+const SITE_URL = window.location.origin + window.location.pathname.replace(/\/[^/]*$/, '/');
 
 // ========== DOM Elements ==========
 const hamburger = document.getElementById('hamburger');
@@ -1179,49 +1179,72 @@ function pagarComCartao() {
     if (freteAtual === 0 && addr.uf) calcularFrete(addr.uf);
 
     const btn = document.getElementById('btnPagarCartao');
+    const btnOriginal = btn ? btn.innerHTML : '';
     if (btn) {
         btn.disabled = true;
         btn.innerHTML = '<span class="spinner"></span> Processando...';
     }
 
-    const payload = {
-        items: cart.items.map(item => ({
-            name: item.name,
-            quantity: item.quantity,
-            price: item.price
-        })),
+    // Montar itens do Mercado Pago
+    const mpItems = cart.items.map(item => ({
+        title: item.name,
+        quantity: item.quantity,
+        unit_price: parseFloat(item.price),
+        currency_id: 'BRL'
+    }));
+
+    // Adicionar frete como item
+    if (freteAtual > 0) {
+        mpItems.push({
+            title: 'Frete Correios PAC',
+            quantity: 1,
+            unit_price: parseFloat(freteAtual),
+            currency_id: 'BRL'
+        });
+    }
+
+    const preference = {
+        items: mpItems,
         payer: {
             name: addr.nome,
-            phone: addr.telefone,
-            cep: addr.cep,
-            street: addr.rua,
-            number: addr.numero
+            phone: { number: addr.telefone },
+            address: {
+                zip_code: addr.cep,
+                street_name: addr.rua,
+                street_number: parseInt(addr.numero) || 0
+            }
         },
-        shipment: {
-            cost: freteAtual
-        }
+        back_urls: {
+            success: SITE_URL + '?status=approved',
+            failure: SITE_URL + '?status=failure',
+            pending: SITE_URL + '?status=pending'
+        },
+        auto_return: 'approved',
+        statement_descriptor: 'TORRES FITWEAR',
+        external_reference: 'order_' + Date.now()
     };
 
-    fetch('/.netlify/functions/create-preference', {
+    fetch('https://api.mercadopago.com/checkout/preferences', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
+        headers: {
+            'Authorization': 'Bearer ' + MP_ACCESS_TOKEN,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(preference)
     })
     .then(r => r.json())
     .then(data => {
         if (data.init_point) {
             window.location.href = data.init_point;
-        } else if (data.sandbox_init_point) {
-            window.location.href = data.sandbox_init_point;
         } else {
             showNotification('Erro ao criar pagamento. Tente via PIX.', 'error');
-            if (btn) { btn.disabled = false; btn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg> Pagar com Cartão'; }
+            if (btn) { btn.disabled = false; btn.innerHTML = btnOriginal; }
         }
     })
     .catch(err => {
         console.error('Erro MP:', err);
         showNotification('Erro de conexão. Tente via PIX.', 'error');
-        if (btn) { btn.disabled = false; btn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg> Pagar com Cartão'; }
+        if (btn) { btn.disabled = false; btn.innerHTML = btnOriginal; }
     });
 }
 
