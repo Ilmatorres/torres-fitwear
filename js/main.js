@@ -1024,8 +1024,9 @@ function validateCheckout() {
 }
 
 function sendCheckoutWhatsApp(e) {
+    e.preventDefault();
+
     if (!validateCheckout()) {
-        e.preventDefault();
         return;
     }
 
@@ -1038,10 +1039,11 @@ function sendCheckoutWhatsApp(e) {
     });
     msg += `\n*Subtotal: R$ ${subtotal.toFixed(2).replace('.', ',')}*`;
     if (freteAtual > 0) {
-        msg += `\n*Frete: R$ ${freteAtual.toFixed(2).replace('.', ',')}*`;
-        msg += `\n*Total: R$ ${totalComFrete.toFixed(2).replace('.', ',')}*\n`;
+        msg += `\n*Frete (Correios PAC): R$ ${freteAtual.toFixed(2).replace('.', ',')}*`;
+        msg += `\n*TOTAL: R$ ${totalComFrete.toFixed(2).replace('.', ',')}*\n`;
     } else {
-        msg += `\n*Total: R$ ${subtotal.toFixed(2).replace('.', ',')}*\n`;
+        msg += `\n*TOTAL: R$ ${subtotal.toFixed(2).replace('.', ',')}*`;
+        msg += `\n_(Frete a calcular)_\n`;
     }
     msg += `\n*Endereco de entrega:*\n`;
     msg += `${addr.nome}\n`;
@@ -1051,10 +1053,10 @@ function sendCheckoutWhatsApp(e) {
     msg += `${addr.cidade} - ${addr.uf}\n`;
     msg += `CEP: ${addr.cep}\n`;
     msg += `Tel: ${addr.telefone}\n`;
-    msg += `\nVou pagar via PIX. Aguardo confirmacao!`;
+    msg += `\nJa fiz o PIX. Aguardo confirmacao!`;
 
-    const link = document.getElementById('checkoutWhatsApp');
-    if (link) link.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+    window.open(url, '_blank');
 }
 
 // Busca automatica de CEP + calculo de frete
