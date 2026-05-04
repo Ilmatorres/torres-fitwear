@@ -66,10 +66,22 @@ const defaultProducts = [
 class ProductsManager {
     constructor() {
         this.products = this.loadProducts();
-        // Reload defaults if products don't have images yet or product count changed
-        if (this.products.length === 0 || this.products.length !== defaultProducts.length || (this.products.length > 0 && !this.products[0].images?.some(i => i.startsWith('assets/')))) {
+        // Reload defaults if empty or if products don't have asset images yet
+        if (this.products.length === 0 || (this.products.length > 0 && !this.products[0].images?.some(i => i.startsWith('assets/')))) {
             this.loadDefaultProducts();
+            return;
         }
+        // Merge: add any new default products missing from saved list (matched by name)
+        const existingNames = new Set(this.products.map(p => p.name));
+        let added = false;
+        defaultProducts.forEach(dp => {
+            if (!existingNames.has(dp.name)) {
+                const maxId = Math.max(0, ...this.products.map(p => p.id || 0));
+                this.products.push({ id: maxId + 1, ...dp });
+                added = true;
+            }
+        });
+        if (added) this.saveProducts();
     }
 
     loadProducts() {
