@@ -62,49 +62,13 @@ const defaultProducts = [
     { name: 'Jaqueta Corta-Vento', price: 99.90, description: 'Jaqueta corta-vento com capuz e zíper, leve e respirável, perfeita para treinos ao ar livre. Disponível em 4 cores.', images: ['assets/products/jaqueta-corta-vento-1.jpeg','assets/products/jaqueta-corta-vento-2.jpeg','assets/products/jaqueta-corta-vento-3.jpeg','assets/products/jaqueta-corta-vento-4.jpeg','assets/products/jaqueta-corta-vento-5.jpeg'], category: 'jaquetas', colors: [{name:'Preto',hex:'#000000'},{name:'Branco',hex:'#ffffff'},{name:'Bege',hex:'#d4b896'},{name:'Rosa',hex:'#f4a8b0'}] }
 ];
 
-// ========== Server Sync ==========
-const PRODUCTS_API = 'https://relaxed-stardust-91e493.netlify.app/.netlify/functions/products';
-const ADMIN_PASSWORD_KEY = 'torres_admin_pw';
-
-async function fetchProductsFromServer() {
-    try {
-        const res = await fetch(PRODUCTS_API, { cache: 'no-store' });
-        if (!res.ok) return null;
-        const data = await res.json();
-        return Array.isArray(data.products) ? data.products : null;
-    } catch (e) {
-        console.warn('Sem ligação ao servidor, a usar cache local:', e);
-        return null;
-    }
-}
-
-async function saveProductsToServer(products) {
-    const password = sessionStorage.getItem(ADMIN_PASSWORD_KEY);
-    if (!password) return { ok: false, reason: 'no-password' };
-    try {
-        const res = await fetch(PRODUCTS_API, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'X-Admin-Password': password },
-            body: JSON.stringify({ products })
-        });
-        if (res.status === 401) {
-            sessionStorage.removeItem(ADMIN_PASSWORD_KEY);
-            return { ok: false, reason: 'wrong-password' };
-        }
-        if (!res.ok) return { ok: false, reason: 'server-error' };
-        return { ok: true };
-    } catch (e) {
-        return { ok: false, reason: 'network' };
-    }
-}
-
 // ========== Products Management ==========
 class ProductsManager {
     constructor() {
         this.products = this.loadProducts();
         // Reload defaults if empty or if products don't have asset images yet
         if (this.products.length === 0 || (this.products.length > 0 && !this.products[0].images?.some(i => i.startsWith('assets/')))) {
-            this.loadDefaultProductsLocal();
+            this.loadDefaultProducts();
             return;
         }
         // Merge: add any new default products missing from saved list (matched by name)
@@ -138,21 +102,6 @@ class ProductsManager {
         localStorage.setItem('torres_products', JSON.stringify(this.products));
     }
 
-    async syncToServer() {
-        const result = await saveProductsToServer(this.products);
-        if (!result.ok) {
-            if (result.reason === 'no-password' || result.reason === 'wrong-password') {
-                showNotification('Sessão admin expirou. Reabra o painel.', 'error');
-            } else if (result.reason === 'network') {
-                showNotification('Sem ligação. Alteração guardada só localmente.', 'error');
-            } else {
-                showNotification('Erro a guardar no servidor.', 'error');
-            }
-            return false;
-        }
-        return true;
-    }
-
     addProduct(name, price, description, images = [], category = 'plus', colors = []) {
         if (!name || !price || !description) return false;
         this.products.push({
@@ -165,14 +114,12 @@ class ProductsManager {
             colors
         });
         this.saveProducts();
-        this.syncToServer();
         return true;
     }
 
     removeProduct(id) {
         this.products = this.products.filter(p => p.id !== id);
         this.saveProducts();
-        this.syncToServer();
     }
 
     updateProduct(id, name, price, description, images, category, colors) {
@@ -185,13 +132,12 @@ class ProductsManager {
             product.category = category;
             product.colors = colors;
             this.saveProducts();
-            this.syncToServer();
             return true;
         }
         return false;
     }
 
-    loadDefaultProductsLocal() {
+    loadDefaultProducts() {
         this.products = defaultProducts.map((p, i) => ({
             id: i + 1,
             ...p
@@ -199,15 +145,9 @@ class ProductsManager {
         this.saveProducts();
     }
 
-    loadDefaultProducts() {
-        this.loadDefaultProductsLocal();
-        this.syncToServer();
-    }
-
     clear() {
         this.products = [];
         this.saveProducts();
-        this.syncToServer();
     }
 
     replaceAll(products) {
@@ -595,20 +535,40 @@ window.addEventListener('load', () => {
     renderProducts();
     initializeAdmin();
     initTestimonials();
-    syncProductsFromServer();
+    loadProductsFromRepo();
 });
 
-async function syncProductsFromServer() {
-    const remote = await fetchProductsFromServer();
-    if (!remote || remote.length === 0) return;
-    const localJSON = JSON.stringify(productsManager.products);
-    const remoteJSON = JSON.stringify(remote);
-    if (localJSON === remoteJSON) return;
-    productsManager.replaceAll(remote);
-    renderProducts();
-    if (adminModal && adminModal.classList.contains('active')) {
-        updateAdminProductsList();
+async function loadProductsFromRepo() {
+    try {
+        const res = await fetch('products.json?t=' + Date.now(), { cache: 'no-store' });
+        if (!res.ok) return;
+        const remote = await res.json();
+        if (!Array.isArray(remote) || remote.length === 0) return;
+        const localJSON = JSON.stringify(productsManager.products);
+        const remoteJSON = JSON.stringify(remote);
+        if (localJSON === remoteJSON) return;
+        productsManager.replaceAll(remote);
+        renderProducts();
+        if (adminModal && adminModal.classList.contains('active')) {
+            updateAdminProductsList();
+        }
+    } catch (e) {
+        // products.json doesn't exist yet — first time setup
     }
+}
+
+function exportProducts() {
+    const json = JSON.stringify(productsManager.products, null, 2);
+    const blob = new Blob([json], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'products.json';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    showNotification('Ficheiro descarregado! Faça upload no GitHub para publicar.');
 }
 
 // ========== Product Image Carousel ==========
@@ -894,29 +854,8 @@ function initializeAdmin() {
     }
 }
 
-async function openAdminPanel() {
+function openAdminPanel() {
     if (!adminModal) return;
-
-    await syncProductsFromServer();
-
-    if (!sessionStorage.getItem(ADMIN_PASSWORD_KEY)) {
-        const pw = prompt('Palavra-passe do admin:');
-        if (!pw) return;
-        const check = await fetch(PRODUCTS_API, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'X-Admin-Password': pw },
-            body: JSON.stringify({ products: productsManager.products })
-        }).catch(() => null);
-        if (!check) {
-            if (!confirm('Sem ligação ao servidor. Continuar em modo local?')) return;
-        } else if (check.status === 401) {
-            alert('Palavra-passe incorrecta!');
-            return;
-        } else if (!check.ok) {
-            showNotification('Aviso do servidor: alterações podem não ser guardadas.', 'error');
-        }
-        sessionStorage.setItem(ADMIN_PASSWORD_KEY, pw);
-    }
     adminModal.classList.add('active');
     document.body.style.overflow = 'hidden';
     updateAdminProductsList();
