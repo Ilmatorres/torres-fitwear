@@ -68,7 +68,7 @@ class ProductsManager {
         this.products = this.loadProducts();
         // Reload defaults if empty or if products don't have asset images yet
         if (this.products.length === 0 || (this.products.length > 0 && !this.products[0].images?.some(i => i.startsWith('assets/')))) {
-            this.loadDefaultProducts();
+            this.loadDefaultProductsLocal();
             return;
         }
         // Merge: add any new default products missing from saved list (matched by name)
@@ -81,7 +81,7 @@ class ProductsManager {
                 added = true;
             }
         });
-        if (added) this.saveProducts();
+        if (added) this._persistLocal();
     }
 
     loadProducts() {
@@ -98,8 +98,13 @@ class ProductsManager {
         });
     }
 
-    saveProducts() {
+    _persistLocal() {
         localStorage.setItem('torres_products', JSON.stringify(this.products));
+    }
+
+    saveProducts() {
+        this._persistLocal();
+        scheduleAutoSave();
     }
 
     addProduct(name, price, description, images = [], category = 'plus', colors = []) {
@@ -137,12 +142,17 @@ class ProductsManager {
         return false;
     }
 
-    loadDefaultProducts() {
+    loadDefaultProductsLocal() {
         this.products = defaultProducts.map((p, i) => ({
             id: i + 1,
             ...p
         }));
-        this.saveProducts();
+        this._persistLocal();
+    }
+
+    loadDefaultProducts() {
+        this.loadDefaultProductsLocal();
+        scheduleAutoSave();
     }
 
     clear() {
@@ -150,10 +160,210 @@ class ProductsManager {
         this.saveProducts();
     }
 
+    replaceAllSilent(products) {
+        this.products = products;
+        this._persistLocal();
+    }
+
     replaceAll(products) {
         this.products = products;
         this.saveProducts();
     }
+}
+
+// ========== GitHub Auto-Save ==========
+const GH_OWNER = 'Ilmatorres';
+const GH_REPO = 'torres-fitwear';
+const GH_FILE = 'products.json';
+const GH_TOKEN_KEY = 'torres_gh_token';
+let saveTimer = null;
+let isSaving = false;
+
+function getGitHubToken() {
+    return localStorage.getItem(GH_TOKEN_KEY);
+}
+
+function setGitHubToken(token) {
+    if (token) localStorage.setItem(GH_TOKEN_KEY, token);
+    else localStorage.removeItem(GH_TOKEN_KEY);
+}
+
+function utf8ToBase64(str) {
+    return btoa(unescape(encodeURIComponent(str)));
+}
+
+async function getProductsFileSha(token) {
+    try {
+        const res = await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${GH_FILE}`, {
+            headers: { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github+json' },
+            cache: 'no-store'
+        });
+        if (res.status === 404) return { ok: true, sha: null };
+        if (res.status === 401 || res.status === 403) return { ok: false, reason: 'auth' };
+        if (!res.ok) return { ok: false, reason: 'api' };
+        const data = await res.json();
+        return { ok: true, sha: data.sha };
+    } catch (e) {
+        return { ok: false, reason: 'network' };
+    }
+}
+
+async function commitProductsToGitHub() {
+    const token = getGitHubToken();
+    if (!token) return { ok: false, reason: 'no-token' };
+
+    const shaResult = await getProductsFileSha(token);
+    if (!shaResult.ok) return shaResult;
+
+    const content = utf8ToBase64(JSON.stringify(productsManager.products, null, 2));
+    const body = {
+        message: 'Atualizar produtos pelo painel admin',
+        content
+    };
+    if (shaResult.sha) body.sha = shaResult.sha;
+
+    try {
+        const res = await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${GH_FILE}`, {
+            method: 'PUT',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Accept': 'application/vnd.github+json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(body)
+        });
+        if (res.status === 401 || res.status === 403) {
+            return { ok: false, reason: 'auth' };
+        }
+        if (!res.ok) {
+            const err = await res.json().catch(() => ({}));
+            return { ok: false, reason: 'api', detail: err.message };
+        }
+        return { ok: true };
+    } catch (e) {
+        return { ok: false, reason: 'network' };
+    }
+}
+
+function scheduleAutoSave() {
+    if (!getGitHubToken()) return;
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(runAutoSave, 1500);
+    updateSaveStatus('pending');
+}
+
+async function runAutoSave() {
+    if (isSaving) {
+        saveTimer = setTimeout(runAutoSave, 1500);
+        return;
+    }
+    isSaving = true;
+    updateSaveStatus('saving');
+    const result = await commitProductsToGitHub();
+    isSaving = false;
+    if (result.ok) {
+        updateSaveStatus('saved');
+        showNotification('Gravado no site! Publicação em ~1 min.');
+    } else if (result.reason === 'auth') {
+        setGitHubToken(null);
+        updateSaveStatus('error');
+        showNotification('Token GitHub inválido. Configure de novo.', 'error');
+        renderTokenSetup();
+    } else if (result.reason === 'network') {
+        updateSaveStatus('error');
+        showNotification('Sem ligação. Tente outra vez.', 'error');
+    } else {
+        updateSaveStatus('error');
+        showNotification('Erro a gravar: ' + (result.detail || 'tente outra vez'), 'error');
+    }
+}
+
+function updateSaveStatus(state) {
+    const el = document.getElementById('saveStatus');
+    if (!el) return;
+    const map = {
+        pending: { text: 'Alterações por gravar…', color: '#f59e0b' },
+        saving: { text: 'A gravar no site…', color: '#3b82f6' },
+        saved: { text: '✓ Gravado no site', color: '#16a34a' },
+        error: { text: '⚠ Erro a gravar', color: '#dc2626' },
+        idle: { text: '', color: '' }
+    };
+    const s = map[state] || map.idle;
+    el.textContent = s.text;
+    el.style.color = s.color;
+}
+
+function renderTokenSetup() {
+    const container = document.getElementById('tokenSetup');
+    if (!container) return;
+    if (getGitHubToken()) {
+        container.innerHTML = `
+            <div style="background:#dcfce7;color:#15803d;padding:8px 12px;border-radius:6px;font-size:13px;display:flex;justify-content:space-between;align-items:center;gap:8px;">
+                <span>✓ Token GitHub configurado — alterações são gravadas automaticamente</span>
+                <button onclick="clearGitHubToken()" style="background:transparent;border:1px solid #15803d;color:#15803d;padding:4px 10px;border-radius:4px;cursor:pointer;font-size:12px;">Remover</button>
+            </div>
+        `;
+    } else {
+        container.innerHTML = `
+            <div style="background:#fef3c7;color:#92400e;padding:12px;border-radius:6px;font-size:13px;line-height:1.5;">
+                <strong>⚠ Token GitHub não configurado</strong><br>
+                Sem token, as alterações ficam só no seu navegador. <a href="#" onclick="showTokenInstructions(event)">Como criar?</a>
+                <div style="margin-top:8px;display:flex;gap:6px;">
+                    <input type="password" id="ghTokenInput" placeholder="Cole aqui o token (github_pat_...)" style="flex:1;padding:6px 10px;border:1px solid #d1d5db;border-radius:4px;font-size:13px;">
+                    <button onclick="saveTokenInput()" style="background:#16a34a;color:#fff;border:none;padding:6px 14px;border-radius:4px;cursor:pointer;font-size:13px;">Guardar</button>
+                </div>
+            </div>
+        `;
+    }
+}
+
+function showTokenInstructions(event) {
+    if (event) event.preventDefault();
+    alert(
+        'Como criar o token (~2 minutos):\n\n' +
+        '1. Abra: https://github.com/settings/personal-access-tokens/new\n' +
+        '2. Token name: Torres Fitwear admin\n' +
+        '3. Expiration: 1 year (ou No expiration)\n' +
+        '4. Repository access: Only select repositories → torres-fitwear\n' +
+        '5. Permissions → Repository permissions → Contents: Read and write\n' +
+        '6. Em baixo: Generate token\n' +
+        '7. Copie o token (começa por github_pat_)\n' +
+        '8. Cole no painel admin e carregue Guardar\n\n' +
+        'O token fica só no seu navegador. Pode revogar a qualquer momento na mesma página do GitHub.'
+    );
+}
+
+async function saveTokenInput() {
+    const input = document.getElementById('ghTokenInput');
+    if (!input) return;
+    const token = input.value.trim();
+    if (!token) {
+        showNotification('Cole o token primeiro!', 'error');
+        return;
+    }
+    setGitHubToken(token);
+    showNotification('A validar token…');
+    const result = await commitProductsToGitHub();
+    if (result.ok) {
+        showNotification('Token válido! Tudo gravado no site.');
+        renderTokenSetup();
+        updateSaveStatus('saved');
+    } else if (result.reason === 'auth') {
+        setGitHubToken(null);
+        showNotification('Token inválido ou sem permissões. Verifique e tente outra vez.', 'error');
+        renderTokenSetup();
+    } else {
+        showNotification('Token guardado, mas houve erro: ' + (result.detail || result.reason), 'error');
+        renderTokenSetup();
+    }
+}
+
+function clearGitHubToken() {
+    if (!confirm('Remover o token? As alterações deixam de ser gravadas automaticamente.')) return;
+    setGitHubToken(null);
+    renderTokenSetup();
+    updateSaveStatus('idle');
+    showNotification('Token removido.');
 }
 
 let productsManager = new ProductsManager();
@@ -547,7 +757,7 @@ async function loadProductsFromRepo() {
         const localJSON = JSON.stringify(productsManager.products);
         const remoteJSON = JSON.stringify(remote);
         if (localJSON === remoteJSON) return;
-        productsManager.replaceAll(remote);
+        productsManager.replaceAllSilent(remote);
         renderProducts();
         if (adminModal && adminModal.classList.contains('active')) {
             updateAdminProductsList();
@@ -859,6 +1069,7 @@ function openAdminPanel() {
     adminModal.classList.add('active');
     document.body.style.overflow = 'hidden';
     updateAdminProductsList();
+    renderTokenSetup();
 }
 
 function closeAdminPanel() {
