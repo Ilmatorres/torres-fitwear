@@ -56,7 +56,10 @@ const defaultProducts = [
     { name: 'Cropt Tule Pink', price: 39.90, description: 'Cropped tule na cor pink, transparente e estiloso, perfeito para o treino', images: ['assets/products/cropt-tule-pink-1.jpeg'], category: 'blusas', colors: [{name:'Pink',hex:'#ec4899'}] },
     { name: 'Blusa UV Turquesa', price: 49.00, description: 'Blusa com proteção UV e secagem rápida, recorte nas costas, ideal para treinos ao ar livre', images: ['assets/products/blusa-uv-1.jpeg','assets/products/blusa-uv-2.jpeg','assets/products/blusa-uv-3.jpeg'], category: 'blusas', colors: [{name:'Verde Água',hex:'#2dd4bf'}] },
     { name: 'Blusa Tule Plus Marinho', price: 49.90, description: 'Blusa tule plus size azul marinho, detalhe transparente na cintura, moderna e confortável', images: ['assets/products/blusa-tule-plus-1.jpeg','assets/products/blusa-tule-plus-2.jpeg'], category: 'blusas', colors: [{name:'Azul Marinho',hex:'#1e3a5f'}] },
-    { name: 'Blusa Dryft', price: 59.90, description: 'Blusa dry fit azul, tecido tecnológico com secagem rápida e toque macio', images: ['assets/products/blusa-dryft-1.jpeg','assets/products/blusa-dryft-2.jpeg'], category: 'blusas', colors: [{name:'Azul',hex:'#6B7FA0'}] }
+    { name: 'Blusa Dryft', price: 59.90, description: 'Blusa dry fit azul, tecido tecnológico com secagem rápida e toque macio', images: ['assets/products/blusa-dryft-1.jpeg','assets/products/blusa-dryft-2.jpeg'], category: 'blusas', colors: [{name:'Azul',hex:'#6B7FA0'}] },
+
+    // ===== JAQUETAS =====
+    { name: 'Jaqueta Corta-Vento', price: 99.90, description: 'Jaqueta corta-vento com capuz e zíper, leve e respirável, perfeita para treinos ao ar livre. Disponível em 4 cores.', images: ['assets/products/jaqueta-corta-vento-1.jpeg','assets/products/jaqueta-corta-vento-2.jpeg','assets/products/jaqueta-corta-vento-3.jpeg','assets/products/jaqueta-corta-vento-4.jpeg','assets/products/jaqueta-corta-vento-5.jpeg'], category: 'jaquetas', colors: [{name:'Preto',hex:'#000000'},{name:'Branco',hex:'#ffffff'},{name:'Bege',hex:'#d4b896'},{name:'Rosa',hex:'#f4a8b0'}] }
 ];
 
 // ========== Products Management ==========
