@@ -1,75 +1,68 @@
-const { getStore } = require('@netlify/blobs');
+import { getStore } from '@netlify/blobs';
 
 const STORE_NAME = 'torres-fitwear';
 const KEY = 'products';
 
-exports.handler = async (event) => {
-    const headers = {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Headers': 'Content-Type, X-Admin-Password',
-        'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-        'Content-Type': 'application/json'
-    };
+const corsHeaders = {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Headers': 'Content-Type, X-Admin-Password',
+    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+    'Content-Type': 'application/json'
+};
 
-    if (event.httpMethod === 'OPTIONS') {
-        return { statusCode: 200, headers, body: '' };
+export default async (request, context) => {
+    if (request.method === 'OPTIONS') {
+        return new Response('', { status: 200, headers: corsHeaders });
     }
 
     try {
         const store = getStore(STORE_NAME);
 
-        if (event.httpMethod === 'GET') {
+        if (request.method === 'GET') {
             const data = await store.get(KEY, { type: 'json' });
-            return {
-                statusCode: 200,
-                headers,
-                body: JSON.stringify({ products: data || null })
-            };
+            return new Response(
+                JSON.stringify({ products: data || null }),
+                { status: 200, headers: corsHeaders }
+            );
         }
 
-        if (event.httpMethod === 'POST') {
+        if (request.method === 'POST') {
             const expected = process.env.ADMIN_PASSWORD;
             if (!expected) {
-                return {
-                    statusCode: 500,
-                    headers,
-                    body: JSON.stringify({ error: 'ADMIN_PASSWORD não configurada no servidor' })
-                };
+                return new Response(
+                    JSON.stringify({ error: 'ADMIN_PASSWORD não configurada no servidor' }),
+                    { status: 500, headers: corsHeaders }
+                );
             }
-            const provided = event.headers['x-admin-password'] || event.headers['X-Admin-Password'];
+            const provided = request.headers.get('x-admin-password');
             if (provided !== expected) {
-                return {
-                    statusCode: 401,
-                    headers,
-                    body: JSON.stringify({ error: 'Palavra-passe incorrecta' })
-                };
+                return new Response(
+                    JSON.stringify({ error: 'Palavra-passe incorrecta' }),
+                    { status: 401, headers: corsHeaders }
+                );
             }
-            const body = JSON.parse(event.body || '{}');
+            const body = await request.json().catch(() => ({}));
             if (!Array.isArray(body.products)) {
-                return {
-                    statusCode: 400,
-                    headers,
-                    body: JSON.stringify({ error: 'Lista de produtos inválida' })
-                };
+                return new Response(
+                    JSON.stringify({ error: 'Lista de produtos inválida' }),
+                    { status: 400, headers: corsHeaders }
+                );
             }
             await store.setJSON(KEY, body.products);
-            return {
-                statusCode: 200,
-                headers,
-                body: JSON.stringify({ ok: true, count: body.products.length })
-            };
+            return new Response(
+                JSON.stringify({ ok: true, count: body.products.length }),
+                { status: 200, headers: corsHeaders }
+            );
         }
 
-        return {
-            statusCode: 405,
-            headers,
-            body: JSON.stringify({ error: 'Método não suportado' })
-        };
+        return new Response(
+            JSON.stringify({ error: 'Método não suportado' }),
+            { status: 405, headers: corsHeaders }
+        );
     } catch (e) {
-        return {
-            statusCode: 500,
-            headers,
-            body: JSON.stringify({ error: e.message })
-        };
+        return new Response(
+            JSON.stringify({ error: e.message }),
+            { status: 500, headers: corsHeaders }
+        );
     }
 };

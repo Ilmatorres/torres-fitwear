@@ -63,7 +63,7 @@ const defaultProducts = [
 ];
 
 // ========== Server Sync ==========
-const PRODUCTS_API = '/.netlify/functions/products';
+const PRODUCTS_API = 'https://relaxed-stardust-91e493.netlify.app/.netlify/functions/products';
 const ADMIN_PASSWORD_KEY = 'torres_admin_pw';
 
 async function fetchProductsFromServer() {
