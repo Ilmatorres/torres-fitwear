@@ -75,9 +75,9 @@
   },
   {
     "id": 5,
-    "name": "Macacão Plus Preto",
+    "name": "Conjunto Plus Preto",
     "price": 150,
-    "description": "Macacão plus size preto com costas abertas, tecido brilhoso e elegante",
+    "description": "Top + legging plus size preto, tecido brilhoso e elegante",
     "images": [
       "assets/products/conjunto-plus-preto-1.jpeg",
       "assets/products/conjunto-plus-preto-2.jpeg"
@@ -369,9 +369,9 @@
   },
   {
     "id": 22,
-    "name": "Macacão Preto",
+    "name": "Macaquinho Preto Cruzado",
     "price": 150,
-    "description": "Macacão preto com costas cruzadas, visual poderoso e versátil",
+    "description": "Macaquinho preto curto com costas cruzadas, visual poderoso e versátil",
     "images": [
       "assets/products/macacao-preto-1.jpeg",
       "assets/products/macacao-preto-2.jpeg"
