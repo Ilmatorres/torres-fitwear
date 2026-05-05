@@ -1,0 +1,668 @@
+[
+  {
+    "id": 1,
+    "name": "Macacão Plus Pink",
+    "price": 160,
+    "description": "Macacão fitness plus size na cor pink, modelagem perfeita com detalhe nas costas",
+    "images": [
+      "assets/products/macacao-plus-pink-1.jpeg",
+      "assets/products/macacao-plus-pink-2.jpeg",
+      "assets/products/macacao-plus-pink-3.jpeg"
+    ],
+    "category": "plus",
+    "colors": [
+      {
+        "name": "Rosa",
+        "hex": "#e91e8c"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Conjunto Plus Vermelho",
+    "price": 159,
+    "description": "Top + legging plus size vermelho marsala, cintura alta e costas trançadas",
+    "images": [
+      "assets/products/conjunto-plus-vermelho-1.jpeg",
+      "assets/products/conjunto-plus-vermelho-2.jpeg"
+    ],
+    "category": "plus",
+    "colors": [
+      {
+        "name": "Vermelho",
+        "hex": "#dc2626"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Conjunto Plus Verde",
+    "price": 149,
+    "description": "Top + legging plus size verde esmeralda, tecido brilhoso e compressão leve",
+    "images": [
+      "assets/products/conjunto-plus-verde-1.jpeg",
+      "assets/products/conjunto-plus-verde-2.jpeg"
+    ],
+    "category": "plus",
+    "colors": [
+      {
+        "name": "Verde",
+        "hex": "#16a34a"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Blusa Dryft Plus",
+    "price": 65,
+    "description": "Blusa dry fit plus size azul com legging roxa, tecido leve e respirável",
+    "images": [
+      "assets/products/blusa-dryft-plus-1.jpeg",
+      "assets/products/blusa-dryft-plus-2.jpeg",
+      "assets/products/blusa-dryft-plus-3.jpeg"
+    ],
+    "category": "plus",
+    "colors": [
+      {
+        "name": "Azul",
+        "hex": "#2563eb"
+      },
+      {
+        "name": "Roxo",
+        "hex": "#7c3aed"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Macacão Plus Preto",
+    "price": 150,
+    "description": "Macacão plus size preto com costas abertas, tecido brilhoso e elegante",
+    "images": [
+      "assets/products/conjunto-plus-preto-1.jpeg",
+      "assets/products/conjunto-plus-preto-2.jpeg"
+    ],
+    "category": "plus",
+    "colors": [
+      {
+        "name": "Preto",
+        "hex": "#000000"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Tule Plus",
+    "price": 59,
+    "description": "Blusa tule plus size azul marinho com detalhe transparente na cintura",
+    "images": [
+      "assets/products/tule-plus-1.jpeg",
+      "assets/products/tule-plus-2.jpeg"
+    ],
+    "category": "plus",
+    "colors": [
+      {
+        "name": "Azul Marinho",
+        "hex": "#1e3a5f"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Conjunto Plus Branco",
+    "price": 150,
+    "description": "Top branco + legging preta plus size, costas nadador e conforto total",
+    "images": [
+      "assets/products/conjunto-plus-branco-1.jpeg",
+      "assets/products/conjunto-plus-branco-2.jpeg"
+    ],
+    "category": "plus",
+    "colors": [
+      {
+        "name": "Branco",
+        "hex": "#ffffff"
+      },
+      {
+        "name": "Preto",
+        "hex": "#000000"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Conjunto Plus Short",
+    "price": 135,
+    "description": "Regata + short bike plus size preto, perfeito para treino e dia a dia",
+    "images": [
+      "assets/products/conjunto-plus-short-1.jpeg",
+      "assets/products/conjunto-plus-short-2.jpeg"
+    ],
+    "category": "plus",
+    "colors": [
+      {
+        "name": "Preto",
+        "hex": "#000000"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Conjunto Bege Short",
+    "price": 100,
+    "description": "Top + short bege, visual clean e elegante para treino",
+    "images": [
+      "assets/products/conjunto-bege-short-1.jpeg",
+      "assets/products/conjunto-bege-short-2.jpeg"
+    ],
+    "category": "tamanho-unico",
+    "colors": [
+      {
+        "name": "Branco",
+        "hex": "#ffffff"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Conjunto Cinza",
+    "price": 115,
+    "description": "Top cropped + legging cinza, tecido macio e confortável",
+    "images": [
+      "assets/products/conjunto-cinza-1.jpeg",
+      "assets/products/conjunto-cinza-2.jpeg"
+    ],
+    "category": "tamanho-unico",
+    "colors": [
+      {
+        "name": "Cinza",
+        "hex": "#6b7280"
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Conjunto Azul Claro",
+    "price": 149,
+    "description": "Top + legging azul claro, tecido brilhoso com compressão leve",
+    "images": [
+      "assets/products/conjunto-azul-claro-1.jpeg",
+      "assets/products/conjunto-azul-claro-2.jpeg"
+    ],
+    "category": "tamanho-unico",
+    "colors": [
+      {
+        "name": "Azul",
+        "hex": "#2563eb"
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Conjunto Azul Royal",
+    "price": 125,
+    "description": "Top triângulo + short azul royal, estilo praiano fitness",
+    "images": [
+      "assets/products/conjunto-azul-royal-1.jpeg",
+      "assets/products/conjunto-azul-royal-2.jpeg"
+    ],
+    "category": "tamanho-unico",
+    "colors": [
+      {
+        "name": "Azul",
+        "hex": "#2563eb"
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "name": "Conjunto Dourado",
+    "price": 139,
+    "description": "Top + short bike dourado, cor vibrante e tecido premium",
+    "images": [
+      "assets/products/conjunto-dourado-1.jpeg"
+    ],
+    "category": "tamanho-unico",
+    "colors": [
+      {
+        "name": "Amarelo",
+        "hex": "#d4a017"
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "name": "Conjunto Creme",
+    "price": 149,
+    "description": "Top + legging creme, visual sofisticado e confortável",
+    "images": [
+      "assets/products/conjunto-creme-1.jpeg",
+      "assets/products/conjunto-creme-2.jpeg"
+    ],
+    "category": "tamanho-unico",
+    "colors": [
+      {
+        "name": "Branco",
+        "hex": "#ffffff"
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "name": "Conjunto Oliva Short",
+    "price": 100,
+    "description": "Top cropped + short bike verde oliva, tecido canelado",
+    "images": [
+      "assets/products/conjunto-oliva-1.jpeg",
+      "assets/products/conjunto-oliva-2.jpeg",
+      "assets/products/conjunto-oliva-3.jpeg"
+    ],
+    "category": "tamanho-unico",
+    "colors": [
+      {
+        "name": "Verde",
+        "hex": "#16a34a"
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "name": "Macaquinho Rosa",
+    "price": 115,
+    "description": "Macaquinho rosa claro com detalhe nas costas trançado",
+    "images": [
+      "assets/products/macaquinho-rosa-1.jpeg",
+      "assets/products/macaquinho-rosa-2.jpeg"
+    ],
+    "category": "tamanho-unico",
+    "colors": [
+      {
+        "name": "Rosa",
+        "hex": "#e91e8c"
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "name": "Conjunto Chumbo",
+    "price": 190,
+    "description": "Regata + legging chumbo com detalhe branco, estilo esportivo",
+    "images": [
+      "assets/products/conjunto-chumbo-1.jpeg",
+      "assets/products/conjunto-chumbo-2.jpeg"
+    ],
+    "category": "tamanho-unico",
+    "colors": [
+      {
+        "name": "Cinza",
+        "hex": "#6b7280"
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "name": "Macacão Verde Água",
+    "price": 150,
+    "description": "Macacão menta/verde água com costas abertas cruzadas, peça única elegante",
+    "images": [
+      "assets/products/macacao-verde-agua-1.jpeg",
+      "assets/products/macacao-verde-agua-2.jpeg",
+      "assets/products/macacao-verde-agua-3.jpeg"
+    ],
+    "category": "tamanho-unico",
+    "colors": [
+      {
+        "name": "Verde Água",
+        "hex": "#2dd4bf"
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "name": "Conjunto Marinho Texturizado",
+    "price": 115,
+    "description": "Top + legging azul marinho texturizado com costas abertas, conjunto duas peças",
+    "images": [
+      "assets/products/macaquinho-marinho-1.jpeg",
+      "assets/products/macaquinho-marinho-2.jpeg"
+    ],
+    "category": "tamanho-unico",
+    "colors": [
+      {
+        "name": "Azul Marinho",
+        "hex": "#1e3a5f"
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "name": "Macaquinho Marsala",
+    "price": 115,
+    "description": "Macaquinho cor marsala texturizado com detalhe nas costas",
+    "images": [
+      "assets/products/macaquinho-marsala-1.jpeg",
+      "assets/products/macaquinho-marsala-2.jpeg"
+    ],
+    "category": "tamanho-unico",
+    "colors": [
+      {
+        "name": "Vermelho",
+        "hex": "#dc2626"
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "name": "Conjunto Marinho",
+    "price": 139,
+    "description": "Top + legging azul marinho com costas abertas, clássico e elegante",
+    "images": [
+      "assets/products/conjunto-marinho-1.jpeg",
+      "assets/products/conjunto-marinho-2.jpeg"
+    ],
+    "category": "tamanho-unico",
+    "colors": [
+      {
+        "name": "Azul Marinho",
+        "hex": "#1e3a5f"
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "name": "Macacão Preto",
+    "price": 150,
+    "description": "Macacão preto com costas cruzadas, visual poderoso e versátil",
+    "images": [
+      "assets/products/macacao-preto-1.jpeg",
+      "assets/products/macacao-preto-2.jpeg"
+    ],
+    "category": "tamanho-unico",
+    "colors": [
+      {
+        "name": "Preto",
+        "hex": "#000000"
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "name": "Conjunto Bege Cropped",
+    "price": 125,
+    "description": "Top cropped + short bege com costas trançadas",
+    "images": [
+      "assets/products/conjunto-bege-crop-1.jpeg",
+      "assets/products/conjunto-bege-crop-2.jpeg"
+    ],
+    "category": "tamanho-unico",
+    "colors": [
+      {
+        "name": "Branco",
+        "hex": "#ffffff"
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "name": "Macacão Sage",
+    "price": 150,
+    "description": "Macacão verde sage texturizado com costas abertas",
+    "images": [
+      "assets/products/macacao-sage-1.jpeg",
+      "assets/products/macacao-sage-2.jpeg"
+    ],
+    "category": "tamanho-unico",
+    "colors": [
+      {
+        "name": "Verde",
+        "hex": "#16a34a"
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "name": "Macaquinho Menta",
+    "price": 115,
+    "description": "Macaquinho menta/verde claro com costas cruzadas",
+    "images": [
+      "assets/products/macaquinho-menta-1.jpeg",
+      "assets/products/macaquinho-menta-2.jpeg"
+    ],
+    "category": "tamanho-unico",
+    "colors": [
+      {
+        "name": "Verde Água",
+        "hex": "#2dd4bf"
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "name": "Conjunto Verde Esmeralda",
+    "price": 139,
+    "description": "Top + short verde esmeralda, estilo moderno e elegante",
+    "images": [
+      "assets/products/conjunto-bicolor-1.jpeg",
+      "assets/products/conjunto-bicolor-2.jpeg"
+    ],
+    "category": "tamanho-unico",
+    "colors": [
+      {
+        "name": "Verde Esmeralda",
+        "hex": "#10b981"
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "name": "Conjunto Verde e Roxo Short",
+    "price": 150,
+    "description": "Top + short verde e roxo com bolso lateral, conjunto duas peças",
+    "images": [
+      "assets/products/macacao-manga-longa-1.jpeg",
+      "assets/products/macacao-manga-longa-2.jpeg"
+    ],
+    "category": "tamanho-unico",
+    "colors": [
+      {
+        "name": "Verde",
+        "hex": "#16a34a"
+      },
+      {
+        "name": "Roxo",
+        "hex": "#7c3aed"
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "name": "Conjunto Preto Detalhe Branco",
+    "price": 125,
+    "description": "Top + short preto com detalhe branco, esportivo e estiloso",
+    "images": [
+      "assets/products/conjunto-preto-branco-1.jpeg",
+      "assets/products/conjunto-preto-branco-2.jpeg"
+    ],
+    "category": "tamanho-unico",
+    "colors": [
+      {
+        "name": "Preto",
+        "hex": "#000000"
+      },
+      {
+        "name": "Branco",
+        "hex": "#ffffff"
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "name": "Conjunto Marinho Detalhe Branco",
+    "price": 125,
+    "description": "Conjunto bicolor azul marinho e branco, top + short bike com viés branco nas bordas",
+    "images": [
+      "assets/products/conjunto-marinho-branco-1.jpeg",
+      "assets/products/conjunto-marinho-branco-2.jpeg"
+    ],
+    "category": "tamanho-unico",
+    "colors": [
+      {
+        "name": "Azul Marinho",
+        "hex": "#1e3a5f"
+      },
+      {
+        "name": "Branco",
+        "hex": "#ffffff"
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "name": "Blusa Tule Azul",
+    "price": 44.99,
+    "description": "Regata em tule azul claro, leve e transparente, perfeita para usar sobre o top no treino",
+    "images": [
+      "assets/products/blusa-tule-azul-1.jpeg",
+      "assets/products/blusa-tule-azul-2.jpeg"
+    ],
+    "category": "blusas",
+    "colors": [
+      {
+        "name": "Azul",
+        "hex": "#87CEEB"
+      }
+    ]
+  },
+  {
+    "id": 31,
+    "name": "Blusa Tule Verde Oliva",
+    "price": 44.99,
+    "description": "Regata em tule verde oliva, transparência estilosa e caimento solto",
+    "images": [
+      "assets/products/blusa-tule-verde-1.jpeg",
+      "assets/products/blusa-tule-verde-2.jpeg"
+    ],
+    "category": "blusas",
+    "colors": [
+      {
+        "name": "Verde",
+        "hex": "#808000"
+      }
+    ]
+  },
+  {
+    "id": 32,
+    "name": "Blusa Tule Manga Longa",
+    "price": 59.9,
+    "description": "Blusa tule manga longa preta, transparência elegante para usar no dia a dia ou no treino",
+    "images": [
+      "assets/products/blusa-tule-manga-longa-1.jpeg"
+    ],
+    "category": "blusas",
+    "colors": [
+      {
+        "name": "Preto",
+        "hex": "#000000"
+      }
+    ]
+  },
+  {
+    "id": 33,
+    "name": "Cropt Tule Pink",
+    "price": 39.9,
+    "description": "Cropped tule na cor pink, transparente e estiloso, perfeito para o treino",
+    "images": [
+      "assets/products/cropt-tule-pink-1.jpeg"
+    ],
+    "category": "blusas",
+    "colors": [
+      {
+        "name": "Pink",
+        "hex": "#ec4899"
+      }
+    ]
+  },
+  {
+    "id": 34,
+    "name": "Blusa UV Turquesa",
+    "price": 49,
+    "description": "Blusa com proteção UV e secagem rápida, recorte nas costas, ideal para treinos ao ar livre",
+    "images": [
+      "assets/products/blusa-uv-1.jpeg",
+      "assets/products/blusa-uv-2.jpeg",
+      "assets/products/blusa-uv-3.jpeg"
+    ],
+    "category": "blusas",
+    "colors": [
+      {
+        "name": "Verde Água",
+        "hex": "#2dd4bf"
+      }
+    ]
+  },
+  {
+    "id": 35,
+    "name": "Blusa Tule Plus Marinho",
+    "price": 49.9,
+    "description": "Blusa tule plus size azul marinho, detalhe transparente na cintura, moderna e confortável",
+    "images": [
+      "assets/products/blusa-tule-plus-1.jpeg",
+      "assets/products/blusa-tule-plus-2.jpeg"
+    ],
+    "category": "blusas",
+    "colors": [
+      {
+        "name": "Azul Marinho",
+        "hex": "#1e3a5f"
+      }
+    ]
+  },
+  {
+    "id": 36,
+    "name": "Blusa Dryft",
+    "price": 59.9,
+    "description": "Blusa dry fit azul, tecido tecnológico com secagem rápida e toque macio",
+    "images": [
+      "assets/products/blusa-dryft-1.jpeg",
+      "assets/products/blusa-dryft-2.jpeg"
+    ],
+    "category": "blusas",
+    "colors": [
+      {
+        "name": "Azul",
+        "hex": "#6B7FA0"
+      }
+    ]
+  },
+  {
+    "id": 37,
+    "name": "Jaqueta Corta-Vento",
+    "price": 99.9,
+    "description": "Jaqueta corta-vento com capuz e zíper, leve e respirável, perfeita para treinos ao ar livre. Disponível em 4 cores.",
+    "images": [
+      "assets/products/jaqueta-corta-vento-1.jpeg",
+      "assets/products/jaqueta-corta-vento-2.jpeg",
+      "assets/products/jaqueta-corta-vento-3.jpeg",
+      "assets/products/jaqueta-corta-vento-4.jpeg",
+      "assets/products/jaqueta-corta-vento-5.jpeg"
+    ],
+    "category": "jaquetas",
+    "colors": [
+      {
+        "name": "Preto",
+        "hex": "#000000"
+      },
+      {
+        "name": "Branco",
+        "hex": "#ffffff"
+      },
+      {
+        "name": "Bege",
+        "hex": "#d4b896"
+      },
+      {
+        "name": "Rosa",
+        "hex": "#f4a8b0"
+      }
+    ]
+  }
+]
