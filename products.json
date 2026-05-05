@@ -475,15 +475,21 @@
   },
   {
     "id": 28,
-    "name": "Conjunto Preto Detalhe Branco",
+    "name": "Conjunto Bicolor com Viés Branco",
     "price": 125,
-    "description": "Top + short preto com detalhe branco, esportivo e estiloso",
+    "description": "Conjunto bicolor com viés branco nas bordas, top + short bike. Disponível em preto e azul marinho.",
     "images": [
+      "assets/products/conjunto-marinho-branco-1.jpeg",
+      "assets/products/conjunto-marinho-branco-2.jpeg",
       "assets/products/conjunto-preto-branco-1.jpeg",
       "assets/products/conjunto-preto-branco-2.jpeg"
     ],
     "category": "tamanho-unico",
     "colors": [
+      {
+        "name": "Azul Marinho",
+        "hex": "#1e3a5f"
+      },
       {
         "name": "Preto",
         "hex": "#000000"
@@ -496,27 +502,6 @@
   },
   {
     "id": 29,
-    "name": "Conjunto Marinho Detalhe Branco",
-    "price": 125,
-    "description": "Conjunto bicolor azul marinho e branco, top + short bike com viés branco nas bordas",
-    "images": [
-      "assets/products/conjunto-marinho-branco-1.jpeg",
-      "assets/products/conjunto-marinho-branco-2.jpeg"
-    ],
-    "category": "tamanho-unico",
-    "colors": [
-      {
-        "name": "Azul Marinho",
-        "hex": "#1e3a5f"
-      },
-      {
-        "name": "Branco",
-        "hex": "#ffffff"
-      }
-    ]
-  },
-  {
-    "id": 30,
     "name": "Blusa Tule Azul",
     "price": 44.99,
     "description": "Regata em tule azul claro, leve e transparente, perfeita para usar sobre o top no treino",
@@ -533,7 +518,7 @@
     ]
   },
   {
-    "id": 31,
+    "id": 30,
     "name": "Blusa Tule Verde Oliva",
     "price": 44.99,
     "description": "Regata em tule verde oliva, transparência estilosa e caimento solto",
@@ -550,7 +535,7 @@
     ]
   },
   {
-    "id": 32,
+    "id": 31,
     "name": "Blusa Tule Manga Longa",
     "price": 59.9,
     "description": "Blusa tule manga longa preta, transparência elegante para usar no dia a dia ou no treino",
@@ -566,7 +551,7 @@
     ]
   },
   {
-    "id": 33,
+    "id": 32,
     "name": "Cropt Tule Pink",
     "price": 39.9,
     "description": "Cropped tule na cor pink, transparente e estiloso, perfeito para o treino",
@@ -582,7 +567,7 @@
     ]
   },
   {
-    "id": 34,
+    "id": 33,
     "name": "Blusa UV Turquesa",
     "price": 49,
     "description": "Blusa com proteção UV e secagem rápida, recorte nas costas, ideal para treinos ao ar livre",
@@ -600,7 +585,7 @@
     ]
   },
   {
-    "id": 35,
+    "id": 34,
     "name": "Blusa Tule Plus Marinho",
     "price": 49.9,
     "description": "Blusa tule plus size azul marinho, detalhe transparente na cintura, moderna e confortável",
@@ -617,7 +602,7 @@
     ]
   },
   {
-    "id": 36,
+    "id": 35,
     "name": "Blusa Dryft",
     "price": 59.9,
     "description": "Blusa dry fit azul, tecido tecnológico com secagem rápida e toque macio",
@@ -634,7 +619,7 @@
     ]
   },
   {
-    "id": 37,
+    "id": 36,
     "name": "Jaqueta Corta-Vento",
     "price": 99.9,
     "description": "Jaqueta corta-vento com capuz e zíper, leve e respirável, perfeita para treinos ao ar livre. Disponível em 4 cores.",
