@@ -876,7 +876,7 @@ function renderProducts() {
             ? `<div class="product-colors">${product.colors.map(c => {
                 const stock = typeof c.stock === 'number' ? c.stock : null;
                 const out = stock === 0;
-                const stockLabel = stock !== null ? `<span class="color-stock${out ? ' out' : ''}">${out ? 'Esgotado' : stock + ' un.'}</span>` : '';
+                const stockLabel = stock !== null ? `<span class="color-stock${out ? ' out' : ''}">${out ? 'Esgotado' : stock + (stock === 1 ? ' disponível' : ' disponíveis')}</span>` : '';
                 return `<div class="color-item${out ? ' out' : ''}" title="${c.name}${stock !== null ? ' — ' + (out ? 'esgotado' : stock + ' disponíveis') : ''}">
                     <span class="product-color-dot" style="background:${c.hex}${c.hex === '#ffffff' ? ';border-color:#ccc' : ''}"></span>
                     <span class="color-name">${c.name}</span>
