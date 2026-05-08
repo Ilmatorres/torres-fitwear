@@ -479,7 +479,7 @@
     "id": 27,
     "name": "Conjunto Verde e Roxo Short",
     "price": 150,
-    "description": "Top + short verde e roxo com bolso lateral, conjunto duas peças",
+    "description": "Conjunto bicolor: top verde + short roxo com bolso lateral. As duas cores vêm juntas no conjunto.",
     "images": [
       "assets/products/macacao-manga-longa-1.jpeg",
       "assets/products/macacao-manga-longa-2.jpeg"
@@ -487,13 +487,8 @@
     "category": "tamanho-unico",
     "colors": [
       {
-        "name": "Verde",
-        "hex": "#16a34a",
-        "stock": 1
-      },
-      {
-        "name": "Roxo",
-        "hex": "#7c3aed",
+        "name": "Verde e Roxo",
+        "hex": "linear-gradient(90deg,#16a34a 50%,#7c3aed 50%)",
         "stock": 1
       }
     ]
