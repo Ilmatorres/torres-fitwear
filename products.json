@@ -497,7 +497,7 @@
     "id": 28,
     "name": "Conjunto Bicolor com Viés Branco",
     "price": 125,
-    "description": "Conjunto bicolor azul marinho com viés branco, top + short bike",
+    "description": "Conjunto bicolor com viés branco nas bordas, top + short bike. Disponível em duas combinações: preto e branco ou azul marinho e branco.",
     "images": [
       "assets/products/conjunto-marinho-branco-1.jpeg",
       "assets/products/conjunto-marinho-branco-2.jpeg"
@@ -505,13 +505,13 @@
     "category": "tamanho-unico",
     "colors": [
       {
-        "name": "Azul Marinho",
-        "hex": "#1e3a5f",
+        "name": "Preto e Branco",
+        "hex": "linear-gradient(90deg,#000000 50%,#ffffff 50%)",
         "stock": 1
       },
       {
-        "name": "Branco",
-        "hex": "#ffffff",
+        "name": "Azul Marinho e Branco",
+        "hex": "linear-gradient(90deg,#1e3a5f 50%,#ffffff 50%)",
         "stock": 1
       }
     ]
