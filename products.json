@@ -116,9 +116,9 @@
   },
   {
     "id": 7,
-    "name": "Conjunto Plus Branco",
+    "name": "Conjunto Plus Branco e Preto",
     "price": 150,
-    "description": "Top branco + legging preta plus size, costas nadador e conforto total",
+    "description": "Conjunto plus size bicolor: top branco + legging preta, costas nadador e conforto total. As duas cores vêm juntas no conjunto.",
     "images": [
       "assets/products/conjunto-plus-branco-1.jpeg",
       "assets/products/conjunto-plus-branco-2.jpeg"
@@ -126,13 +126,8 @@
     "category": "plus",
     "colors": [
       {
-        "name": "Branco",
-        "hex": "#ffffff",
-        "stock": 1
-      },
-      {
-        "name": "Preto",
-        "hex": "#000000",
+        "name": "Branco e Preto",
+        "hex": "linear-gradient(90deg,#ffffff 50%,#000000 50%)",
         "stock": 1
       }
     ]
