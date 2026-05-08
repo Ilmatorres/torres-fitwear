@@ -157,9 +157,9 @@
   },
   {
     "id": 9,
-    "name": "Conjunto Bege Short",
+    "name": "Macaquinho Bege Detalhe Branco",
     "price": 100,
-    "description": "Top + short bege, visual clean e elegante para treino",
+    "description": "Macaquinho bege brilhoso com viés branco no decote e costas cruzadas, peça única elegante",
     "images": [
       "assets/products/conjunto-bege-short-1.jpeg",
       "assets/products/conjunto-bege-short-2.jpeg"
@@ -167,8 +167,8 @@
     "category": "tamanho-unico",
     "colors": [
       {
-        "name": "Branco",
-        "hex": "#ffffff",
+        "name": "Bege",
+        "hex": "#a8836a",
         "stock": 1
       }
     ]
