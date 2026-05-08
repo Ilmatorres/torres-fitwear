@@ -382,37 +382,50 @@ class ShoppingCart {
 
     loadFromStorage() {
         const saved = localStorage.getItem('torres_cart');
-        return saved ? JSON.parse(saved) : [];
+        const items = saved ? JSON.parse(saved) : [];
+        // Migração: garantir que cada item tem id e color
+        return items.map(item => ({
+            id: item.id || Date.now() + Math.random(),
+            color: item.color || '',
+            ...item
+        }));
     }
 
     saveToStorage() {
         localStorage.setItem('torres_cart', JSON.stringify(this.items));
     }
 
-    addItem(productName, price = 0, image = '') {
-        const existingItem = this.items.find(item => item.name === productName);
+    addItem(productName, price = 0, image = '', color = '') {
+        const existingItem = this.items.find(item => item.name === productName && (item.color || '') === color);
         if (existingItem) {
             existingItem.quantity += 1;
         } else {
-            this.items.push({ name: productName, price, quantity: 1, image });
+            this.items.push({
+                id: Date.now() + Math.random(),
+                name: productName,
+                price,
+                quantity: 1,
+                image,
+                color
+            });
         }
         this.saveToStorage();
         this.updateCartBadge();
     }
 
-    removeItem(productName) {
-        this.items = this.items.filter(item => item.name !== productName);
+    removeItem(itemId) {
+        this.items = this.items.filter(item => item.id !== itemId);
         this.saveToStorage();
         this.updateCartBadge();
         renderCartItems();
     }
 
-    updateQuantity(productName, delta) {
-        const item = this.items.find(item => item.name === productName);
+    updateQuantity(itemId, delta) {
+        const item = this.items.find(item => item.id === itemId);
         if (item) {
             item.quantity += delta;
             if (item.quantity <= 0) {
-                this.removeItem(productName);
+                this.removeItem(itemId);
                 return;
             }
             this.saveToStorage();
@@ -485,19 +498,23 @@ function renderCartItems() {
             const imgHtml = item.image
                 ? `<img class="cart-item-img" src="${item.image}" alt="${item.name}">`
                 : `<div class="cart-item-letter">${item.name.charAt(0)}</div>`;
+            const colorBadge = item.color
+                ? `<div class="cart-item-color">Cor: <strong>${item.color}</strong></div>`
+                : '';
             return `
             <div class="cart-item">
                 ${imgHtml}
                 <div class="cart-item-info">
                     <div class="cart-item-name">${item.name}</div>
+                    ${colorBadge}
                     <div class="cart-item-price">R$ ${(item.price * item.quantity).toFixed(2).replace('.', ',')}</div>
                 </div>
                 <div class="cart-item-controls">
-                    <button class="cart-item-qty-btn" onclick="cart.updateQuantity('${item.name.replace(/'/g, "\\'")}', -1)">-</button>
+                    <button class="cart-item-qty-btn" onclick="cart.updateQuantity(${item.id}, -1)">-</button>
                     <span class="cart-item-qty">${item.quantity}</span>
-                    <button class="cart-item-qty-btn" onclick="cart.updateQuantity('${item.name.replace(/'/g, "\\'")}', 1)">+</button>
+                    <button class="cart-item-qty-btn" onclick="cart.updateQuantity(${item.id}, 1)">+</button>
                 </div>
-                <button class="cart-item-remove" onclick="cart.removeItem('${item.name.replace(/'/g, "\\'")}')" title="Remover">&times;</button>
+                <button class="cart-item-remove" onclick="cart.removeItem(${item.id})" title="Remover">&times;</button>
             </div>`;
         }).join('');
     }
@@ -519,7 +536,8 @@ function checkoutWhatsApp() {
     }
     let msg = 'Olá! Gostaria de fazer um pedido:\n\n';
     cart.items.forEach(item => {
-        msg += `• ${item.name} (x${item.quantity}) - R$ ${(item.price * item.quantity).toFixed(2).replace('.', ',')}\n`;
+        const colorPart = item.color ? ` — Cor: ${item.color}` : '';
+        msg += `• ${item.name}${colorPart} (x${item.quantity}) - R$ ${(item.price * item.quantity).toFixed(2).replace('.', ',')}\n`;
     });
     msg += `\n*Total: R$ ${cart.getTotal().toFixed(2).replace('.', ',')}*\n\nPoderia me ajudar com esse pedido?`;
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
@@ -561,10 +579,79 @@ const cartMessages = [
 
 function addToCart(productName, price = 0) {
     const product = productsManager.products.find(p => p.name === productName);
+    if (!product) return;
+    const colors = product.colors || [];
+    const availableColors = colors.filter(c => typeof c.stock !== 'number' || c.stock > 0);
+
+    if (availableColors.length === 0 && colors.length > 0) {
+        showNotification('Produto esgotado!', 'error');
+        return;
+    }
+
+    if (colors.length === 0) {
+        addToCartWithColor(productName, price, '');
+        return;
+    }
+
+    if (availableColors.length === 1 && colors.length === 1) {
+        addToCartWithColor(productName, price, availableColors[0].name);
+        return;
+    }
+
+    showColorPicker(product);
+}
+
+function addToCartWithColor(productName, price, colorName) {
+    const product = productsManager.products.find(p => p.name === productName);
     const image = product && product.images && product.images.length > 0 ? product.images[0] : '';
-    cart.addItem(productName, price, image);
+    cart.addItem(productName, price, image, colorName);
     const msg = cartMessages[Math.floor(Math.random() * cartMessages.length)];
-    showNotification(`${productName} adicionado!\n${msg}`);
+    const label = colorName ? `${productName} (${colorName})` : productName;
+    showNotification(`${label} adicionado!\n${msg}`);
+}
+
+function showColorPicker(product) {
+    const existing = document.getElementById('colorPickerOverlay');
+    if (existing) existing.remove();
+
+    const colors = product.colors || [];
+    const overlay = document.createElement('div');
+    overlay.id = 'colorPickerOverlay';
+    overlay.className = 'color-picker-overlay';
+    overlay.onclick = (e) => { if (e.target === overlay) overlay.remove(); };
+
+    const optionsHtml = colors.map(c => {
+        const stock = typeof c.stock === 'number' ? c.stock : null;
+        const out = stock === 0;
+        const stockLabel = stock !== null
+            ? (out ? 'Esgotado' : stock + (stock === 1 ? ' disponível' : ' disponíveis'))
+            : '';
+        const safeName = c.name.replace(/'/g, "\\'");
+        const safeProduct = product.name.replace(/'/g, "\\'");
+        const onClick = out ? '' : `onclick="selectColorAndAdd('${safeProduct}', ${product.price}, '${safeName}')"`;
+        return `
+            <button type="button" class="color-picker-option${out ? ' out' : ''}" ${out ? 'disabled' : ''} ${onClick}>
+                <span class="color-picker-dot" style="background:${c.hex}${c.hex === '#ffffff' ? ';border:2px solid #ccc' : ''}"></span>
+                <span class="color-picker-name">${c.name}</span>
+                ${stockLabel ? `<span class="color-picker-stock${out ? ' out' : ''}">${stockLabel}</span>` : ''}
+            </button>`;
+    }).join('');
+
+    overlay.innerHTML = `
+        <div class="color-picker-modal">
+            <button class="color-picker-close" onclick="document.getElementById('colorPickerOverlay').remove()">&times;</button>
+            <h3 style="margin:0 0 6px 0;">${product.name}</h3>
+            <p style="color:#6b7280;margin:0 0 16px 0;font-size:14px;">Escolha a cor para fazer o pedido:</p>
+            <div class="color-picker-options">${optionsHtml}</div>
+        </div>
+    `;
+    document.body.appendChild(overlay);
+}
+
+function selectColorAndAdd(productName, price, colorName) {
+    const overlay = document.getElementById('colorPickerOverlay');
+    if (overlay) overlay.remove();
+    addToCartWithColor(productName, price, colorName);
 }
 
 // ========== Notifications ==========
@@ -1235,12 +1322,14 @@ function openCheckout() {
     const itemsEl = document.getElementById('checkoutItems');
     const totalEl = document.getElementById('checkoutTotal');
     if (itemsEl) {
-        itemsEl.innerHTML = cart.items.map(item => `
+        itemsEl.innerHTML = cart.items.map(item => {
+            const colorPart = item.color ? ` <span style="color:#6b7280;font-size:13px;">(${item.color})</span>` : '';
+            return `
             <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #eee;">
-                <span>${item.name} x${item.quantity}</span>
+                <span>${item.name}${colorPart} x${item.quantity}</span>
                 <strong>R$ ${(item.price * item.quantity).toFixed(2).replace('.', ',')}</strong>
-            </div>
-        `).join('');
+            </div>`;
+        }).join('');
     }
     if (totalEl) totalEl.textContent = `R$ ${cart.getTotal().toFixed(2).replace('.', ',')}`;
 
@@ -1336,7 +1425,8 @@ function sendCheckoutWhatsApp(e) {
     const totalComFrete = subtotal + freteAtual;
     let msg = `Ola! Gostaria de finalizar meu pedido:\n\n`;
     cart.items.forEach(item => {
-        msg += `• ${item.name} (x${item.quantity}) - R$ ${(item.price * item.quantity).toFixed(2).replace('.', ',')}\n`;
+        const colorPart = item.color ? ` — Cor: ${item.color}` : '';
+        msg += `• ${item.name}${colorPart} (x${item.quantity}) - R$ ${(item.price * item.quantity).toFixed(2).replace('.', ',')}\n`;
     });
     msg += `\n*Subtotal: R$ ${subtotal.toFixed(2).replace('.', ',')}*`;
     if (freteAtual > 0) {
@@ -1482,9 +1572,9 @@ function pagarComCartao() {
         btn.innerHTML = '<span class="spinner"></span> Processando...';
     }
 
-    // Montar itens do Mercado Pago
+    // Montar itens do Mercado Pago (incluindo cor no título)
     const mpItems = cart.items.map(item => ({
-        title: item.name,
+        title: item.color ? `${item.name} (${item.color})` : item.name,
         quantity: item.quantity,
         unit_price: parseFloat(item.price),
         currency_id: 'BRL'
