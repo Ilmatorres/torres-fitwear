@@ -219,7 +219,7 @@
   },
   {
     "id": 13,
-    "name": "Conjunto Amarelo Manteiga",
+    "name": "Conjunto Amarelo Manteiga Short",
     "price": 139,
     "description": "Top + short bike na cor amarelo manteiga, suave e elegante, tecido premium",
     "images": [
@@ -236,9 +236,9 @@
   },
   {
     "id": 14,
-    "name": "Conjunto Creme",
+    "name": "Conjunto Amarelo Manteiga Legging",
     "price": 149,
-    "description": "Top + legging creme, visual sofisticado e confortável",
+    "description": "Top + legging na cor amarelo manteiga, visual sofisticado e confortável",
     "images": [
       "assets/products/conjunto-creme-1.jpeg",
       "assets/products/conjunto-creme-2.jpeg"
@@ -246,8 +246,8 @@
     "category": "tamanho-unico",
     "colors": [
       {
-        "name": "Branco",
-        "hex": "#ffffff",
+        "name": "Amarelo Manteiga",
+        "hex": "#f5e8a8",
         "stock": 1
       }
     ]
