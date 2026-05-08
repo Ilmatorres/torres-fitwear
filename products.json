@@ -58,7 +58,7 @@
     "id": 4,
     "name": "Blusa Dryft Plus",
     "price": 65,
-    "description": "Blusa dry fit plus size azul com legging roxa, tecido leve e respirável",
+    "description": "Blusa dry fit plus size em tecido leve e respirável (apenas a blusa, a legging da foto não está incluída)",
     "images": [
       "assets/products/blusa-dryft-plus-1.jpeg",
       "assets/products/blusa-dryft-plus-2.jpeg",
@@ -68,12 +68,7 @@
     "colors": [
       {
         "name": "Azul",
-        "hex": "#2563eb",
-        "stock": 1
-      },
-      {
-        "name": "Roxo",
-        "hex": "#7c3aed",
+        "hex": "#6f7fb0",
         "stock": 1
       }
     ]
