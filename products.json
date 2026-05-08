@@ -219,17 +219,17 @@
   },
   {
     "id": 13,
-    "name": "Conjunto Dourado",
+    "name": "Conjunto Amarelo Manteiga",
     "price": 139,
-    "description": "Top + short bike dourado, cor vibrante e tecido premium",
+    "description": "Top + short bike na cor amarelo manteiga, suave e elegante, tecido premium",
     "images": [
       "assets/products/conjunto-dourado-1.jpeg"
     ],
     "category": "tamanho-unico",
     "colors": [
       {
-        "name": "Amarelo",
-        "hex": "#d4a017",
+        "name": "Amarelo Manteiga",
+        "hex": "#f5e8a8",
         "stock": 1
       }
     ]
