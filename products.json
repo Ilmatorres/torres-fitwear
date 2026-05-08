@@ -410,9 +410,9 @@
   },
   {
     "id": 23,
-    "name": "Conjunto Bege Cropped",
+    "name": "Macaquinho Bege com Recorte",
     "price": 125,
-    "description": "Top cropped + short bege com costas trançadas",
+    "description": "Macaquinho bege com recorte assimétrico e viés verde oliva, peça única moderna",
     "images": [
       "assets/products/conjunto-bege-crop-1.jpeg",
       "assets/products/conjunto-bege-crop-2.jpeg"
@@ -420,8 +420,8 @@
     "category": "tamanho-unico",
     "colors": [
       {
-        "name": "Branco",
-        "hex": "#ffffff",
+        "name": "Bege",
+        "hex": "#c9a890",
         "stock": 1
       }
     ]
