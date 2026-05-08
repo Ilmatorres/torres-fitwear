@@ -13,7 +13,8 @@
     "colors": [
       {
         "name": "Rosa",
-        "hex": "#e91e8c"
+        "hex": "#e91e8c",
+        "stock": 5
       }
     ]
   },
@@ -30,7 +31,8 @@
     "colors": [
       {
         "name": "Vermelho",
-        "hex": "#dc2626"
+        "hex": "#dc2626",
+        "stock": 5
       }
     ]
   },
@@ -47,7 +49,8 @@
     "colors": [
       {
         "name": "Verde",
-        "hex": "#16a34a"
+        "hex": "#16a34a",
+        "stock": 5
       }
     ]
   },
@@ -65,11 +68,13 @@
     "colors": [
       {
         "name": "Azul",
-        "hex": "#2563eb"
+        "hex": "#2563eb",
+        "stock": 5
       },
       {
         "name": "Roxo",
-        "hex": "#7c3aed"
+        "hex": "#7c3aed",
+        "stock": 5
       }
     ]
   },
@@ -86,7 +91,8 @@
     "colors": [
       {
         "name": "Preto",
-        "hex": "#000000"
+        "hex": "#000000",
+        "stock": 5
       }
     ]
   },
@@ -103,7 +109,8 @@
     "colors": [
       {
         "name": "Azul Marinho",
-        "hex": "#1e3a5f"
+        "hex": "#1e3a5f",
+        "stock": 5
       }
     ]
   },
@@ -120,11 +127,13 @@
     "colors": [
       {
         "name": "Branco",
-        "hex": "#ffffff"
+        "hex": "#ffffff",
+        "stock": 5
       },
       {
         "name": "Preto",
-        "hex": "#000000"
+        "hex": "#000000",
+        "stock": 5
       }
     ]
   },
@@ -141,7 +150,8 @@
     "colors": [
       {
         "name": "Preto",
-        "hex": "#000000"
+        "hex": "#000000",
+        "stock": 5
       }
     ]
   },
@@ -158,7 +168,8 @@
     "colors": [
       {
         "name": "Branco",
-        "hex": "#ffffff"
+        "hex": "#ffffff",
+        "stock": 5
       }
     ]
   },
@@ -175,7 +186,8 @@
     "colors": [
       {
         "name": "Cinza",
-        "hex": "#6b7280"
+        "hex": "#6b7280",
+        "stock": 5
       }
     ]
   },
@@ -192,7 +204,8 @@
     "colors": [
       {
         "name": "Azul",
-        "hex": "#2563eb"
+        "hex": "#2563eb",
+        "stock": 5
       }
     ]
   },
@@ -209,7 +222,8 @@
     "colors": [
       {
         "name": "Azul",
-        "hex": "#2563eb"
+        "hex": "#2563eb",
+        "stock": 5
       }
     ]
   },
@@ -225,7 +239,8 @@
     "colors": [
       {
         "name": "Amarelo",
-        "hex": "#d4a017"
+        "hex": "#d4a017",
+        "stock": 5
       }
     ]
   },
@@ -242,7 +257,8 @@
     "colors": [
       {
         "name": "Branco",
-        "hex": "#ffffff"
+        "hex": "#ffffff",
+        "stock": 5
       }
     ]
   },
@@ -260,7 +276,8 @@
     "colors": [
       {
         "name": "Verde",
-        "hex": "#16a34a"
+        "hex": "#16a34a",
+        "stock": 5
       }
     ]
   },
@@ -277,7 +294,8 @@
     "colors": [
       {
         "name": "Rosa",
-        "hex": "#e91e8c"
+        "hex": "#e91e8c",
+        "stock": 5
       }
     ]
   },
@@ -294,7 +312,8 @@
     "colors": [
       {
         "name": "Cinza",
-        "hex": "#6b7280"
+        "hex": "#6b7280",
+        "stock": 5
       }
     ]
   },
@@ -312,7 +331,8 @@
     "colors": [
       {
         "name": "Verde Água",
-        "hex": "#2dd4bf"
+        "hex": "#2dd4bf",
+        "stock": 5
       }
     ]
   },
@@ -329,7 +349,8 @@
     "colors": [
       {
         "name": "Preto",
-        "hex": "#000000"
+        "hex": "#000000",
+        "stock": 5
       }
     ]
   },
@@ -346,7 +367,8 @@
     "colors": [
       {
         "name": "Vermelho",
-        "hex": "#dc2626"
+        "hex": "#dc2626",
+        "stock": 5
       }
     ]
   },
@@ -363,7 +385,8 @@
     "colors": [
       {
         "name": "Azul Marinho",
-        "hex": "#1e3a5f"
+        "hex": "#1e3a5f",
+        "stock": 5
       }
     ]
   },
@@ -380,7 +403,8 @@
     "colors": [
       {
         "name": "Preto",
-        "hex": "#000000"
+        "hex": "#000000",
+        "stock": 5
       }
     ]
   },
@@ -397,7 +421,8 @@
     "colors": [
       {
         "name": "Branco",
-        "hex": "#ffffff"
+        "hex": "#ffffff",
+        "stock": 5
       }
     ]
   },
@@ -414,7 +439,8 @@
     "colors": [
       {
         "name": "Azul Marinho",
-        "hex": "#1e3a5f"
+        "hex": "#1e3a5f",
+        "stock": 5
       }
     ]
   },
@@ -431,7 +457,8 @@
     "colors": [
       {
         "name": "Verde Água",
-        "hex": "#2dd4bf"
+        "hex": "#2dd4bf",
+        "stock": 5
       }
     ]
   },
@@ -448,7 +475,8 @@
     "colors": [
       {
         "name": "Verde Esmeralda",
-        "hex": "#10b981"
+        "hex": "#10b981",
+        "stock": 5
       }
     ]
   },
@@ -465,11 +493,13 @@
     "colors": [
       {
         "name": "Verde",
-        "hex": "#16a34a"
+        "hex": "#16a34a",
+        "stock": 5
       },
       {
         "name": "Roxo",
-        "hex": "#7c3aed"
+        "hex": "#7c3aed",
+        "stock": 5
       }
     ]
   },
@@ -488,15 +518,18 @@
     "colors": [
       {
         "name": "Azul Marinho",
-        "hex": "#1e3a5f"
+        "hex": "#1e3a5f",
+        "stock": 5
       },
       {
         "name": "Preto",
-        "hex": "#000000"
+        "hex": "#000000",
+        "stock": 5
       },
       {
         "name": "Branco",
-        "hex": "#ffffff"
+        "hex": "#ffffff",
+        "stock": 5
       }
     ]
   },
@@ -513,7 +546,8 @@
     "colors": [
       {
         "name": "Preto",
-        "hex": "#000000"
+        "hex": "#000000",
+        "stock": 5
       }
     ]
   },
@@ -529,7 +563,8 @@
     "colors": [
       {
         "name": "Marsala",
-        "hex": "#9b2c4f"
+        "hex": "#9b2c4f",
+        "stock": 5
       }
     ]
   },
@@ -545,7 +580,8 @@
     "colors": [
       {
         "name": "Azul Marinho",
-        "hex": "#1e3a5f"
+        "hex": "#1e3a5f",
+        "stock": 5
       }
     ]
   },
@@ -562,23 +598,28 @@
     "colors": [
       {
         "name": "Bege",
-        "hex": "#d4b896"
+        "hex": "#d4b896",
+        "stock": 5
       },
       {
         "name": "Azul Marinho",
-        "hex": "#1e3a5f"
+        "hex": "#1e3a5f",
+        "stock": 5
       },
       {
         "name": "Marsala",
-        "hex": "#9b2c4f"
+        "hex": "#9b2c4f",
+        "stock": 5
       },
       {
         "name": "Branco",
-        "hex": "#ffffff"
+        "hex": "#ffffff",
+        "stock": 5
       },
       {
         "name": "Verde Oliva",
-        "hex": "#808000"
+        "hex": "#808000",
+        "stock": 5
       }
     ]
   },
@@ -595,7 +636,8 @@
     "colors": [
       {
         "name": "Azul",
-        "hex": "#87CEEB"
+        "hex": "#87CEEB",
+        "stock": 5
       }
     ]
   },
@@ -612,7 +654,8 @@
     "colors": [
       {
         "name": "Verde",
-        "hex": "#808000"
+        "hex": "#808000",
+        "stock": 5
       }
     ]
   },
@@ -628,7 +671,8 @@
     "colors": [
       {
         "name": "Preto",
-        "hex": "#000000"
+        "hex": "#000000",
+        "stock": 5
       }
     ]
   },
@@ -644,7 +688,8 @@
     "colors": [
       {
         "name": "Pink",
-        "hex": "#ec4899"
+        "hex": "#ec4899",
+        "stock": 5
       }
     ]
   },
@@ -662,7 +707,8 @@
     "colors": [
       {
         "name": "Verde Água",
-        "hex": "#2dd4bf"
+        "hex": "#2dd4bf",
+        "stock": 5
       }
     ]
   },
@@ -679,7 +725,8 @@
     "colors": [
       {
         "name": "Azul Marinho",
-        "hex": "#1e3a5f"
+        "hex": "#1e3a5f",
+        "stock": 5
       }
     ]
   },
@@ -696,7 +743,8 @@
     "colors": [
       {
         "name": "Azul",
-        "hex": "#6B7FA0"
+        "hex": "#6B7FA0",
+        "stock": 5
       }
     ]
   },
@@ -712,7 +760,8 @@
     "colors": [
       {
         "name": "Verde Neon",
-        "hex": "#84cc16"
+        "hex": "#84cc16",
+        "stock": 5
       }
     ]
   },
@@ -729,7 +778,8 @@
     "colors": [
       {
         "name": "Branco",
-        "hex": "#ffffff"
+        "hex": "#ffffff",
+        "stock": 5
       }
     ]
   },
@@ -746,7 +796,8 @@
     "colors": [
       {
         "name": "Azul",
-        "hex": "#3b82f6"
+        "hex": "#3b82f6",
+        "stock": 5
       }
     ]
   },
@@ -766,19 +817,23 @@
     "colors": [
       {
         "name": "Preto",
-        "hex": "#000000"
+        "hex": "#000000",
+        "stock": 5
       },
       {
         "name": "Branco",
-        "hex": "#ffffff"
+        "hex": "#ffffff",
+        "stock": 5
       },
       {
         "name": "Bege",
-        "hex": "#d4b896"
+        "hex": "#d4b896",
+        "stock": 5
       },
       {
         "name": "Rosa",
-        "hex": "#f4a8b0"
+        "hex": "#f4a8b0",
+        "stock": 5
       }
     ]
   }

@@ -2772,6 +2772,68 @@ body {
     transform: scale(1.2);
 }
 
+.color-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 8px;
+    background: #f9fafb;
+    border-radius: 6px;
+    font-size: 12px;
+    color: #4b5563;
+}
+
+.color-item.out {
+    opacity: 0.5;
+    text-decoration: line-through;
+}
+
+.color-item .color-name {
+    font-weight: 500;
+}
+
+.color-item .color-stock {
+    background: #dbeafe;
+    color: #1e40af;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.color-item .color-stock.out {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.product-card {
+    position: relative;
+}
+
+.product-card.esgotado {
+    opacity: 0.7;
+}
+
+.product-card.esgotado .product-image,
+.product-card.esgotado .product-carousel {
+    filter: grayscale(60%);
+}
+
+.esgotado-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: #dc2626;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
 .admin-form-buttons {
     display: flex;
     gap: 10px;
