@@ -507,23 +507,16 @@
     "id": 28,
     "name": "Conjunto Bicolor com Viés Branco",
     "price": 125,
-    "description": "Conjunto bicolor com viés branco nas bordas, top + short bike. Disponível em preto e azul marinho.",
+    "description": "Conjunto bicolor azul marinho com viés branco, top + short bike",
     "images": [
       "assets/products/conjunto-marinho-branco-1.jpeg",
-      "assets/products/conjunto-marinho-branco-2.jpeg",
-      "assets/products/conjunto-preto-branco-1.jpeg",
-      "assets/products/conjunto-preto-branco-2.jpeg"
+      "assets/products/conjunto-marinho-branco-2.jpeg"
     ],
     "category": "tamanho-unico",
     "colors": [
       {
         "name": "Azul Marinho",
         "hex": "#1e3a5f",
-        "stock": 1
-      },
-      {
-        "name": "Preto",
-        "hex": "#000000",
         "stock": 1
       },
       {
@@ -535,6 +528,24 @@
   },
   {
     "id": 29,
+    "name": "Macacão Preto",
+    "price": 125,
+    "description": "Macacão preto comprido com alças finas e costas em V abertas, peça única elegante",
+    "images": [
+      "assets/products/conjunto-preto-branco-1.jpeg",
+      "assets/products/conjunto-preto-branco-2.jpeg"
+    ],
+    "category": "tamanho-unico",
+    "colors": [
+      {
+        "name": "Preto",
+        "hex": "#000000",
+        "stock": 1
+      }
+    ]
+  },
+  {
+    "id": 30,
     "name": "Conjunto Preto",
     "price": 110,
     "description": "Conjunto preto top + legging, modelagem clássica para treino e dia a dia",
@@ -552,7 +563,7 @@
     ]
   },
   {
-    "id": 30,
+    "id": 31,
     "name": "Conjunto Canelado Marsala",
     "price": 110,
     "description": "Conjunto canelado top + short na cor marsala, tecido com textura e caimento perfeito",
@@ -569,7 +580,7 @@
     ]
   },
   {
-    "id": 31,
+    "id": 32,
     "name": "Conjunto Canelado Marinho",
     "price": 110,
     "description": "Conjunto canelado top + short azul marinho, tecido com textura canelada elegante",
@@ -586,7 +597,7 @@
     ]
   },
   {
-    "id": 32,
+    "id": 33,
     "name": "Short Canelado",
     "price": 55,
     "description": "Short bike canelado, tecido com textura. Disponível em várias cores: bege, azul marinho, marsala, branco e oliva",
@@ -624,7 +635,7 @@
     ]
   },
   {
-    "id": 33,
+    "id": 34,
     "name": "Blusa Tule Azul",
     "price": 44.99,
     "description": "Regata em tule azul claro, leve e transparente, perfeita para usar sobre o top no treino",
@@ -642,7 +653,7 @@
     ]
   },
   {
-    "id": 34,
+    "id": 35,
     "name": "Blusa Tule Verde Oliva",
     "price": 44.99,
     "description": "Regata em tule verde oliva, transparência estilosa e caimento solto",
@@ -660,7 +671,7 @@
     ]
   },
   {
-    "id": 35,
+    "id": 36,
     "name": "Blusa Tule Manga Longa",
     "price": 59.9,
     "description": "Blusa tule manga longa preta, transparência elegante para usar no dia a dia ou no treino",
@@ -677,7 +688,7 @@
     ]
   },
   {
-    "id": 36,
+    "id": 37,
     "name": "Cropt Tule Pink",
     "price": 39.9,
     "description": "Cropped tule na cor pink, transparente e estiloso, perfeito para o treino",
@@ -694,7 +705,7 @@
     ]
   },
   {
-    "id": 37,
+    "id": 38,
     "name": "Blusa UV Turquesa",
     "price": 49,
     "description": "Blusa com proteção UV e secagem rápida, recorte nas costas, ideal para treinos ao ar livre",
@@ -713,7 +724,7 @@
     ]
   },
   {
-    "id": 38,
+    "id": 39,
     "name": "Blusa Tule Plus Marinho",
     "price": 49.9,
     "description": "Blusa tule plus size azul marinho, detalhe transparente na cintura, moderna e confortável",
@@ -731,7 +742,7 @@
     ]
   },
   {
-    "id": 39,
+    "id": 40,
     "name": "Blusa Dryft",
     "price": 59.9,
     "description": "Blusa dry fit azul, tecido tecnológico com secagem rápida e toque macio",
@@ -749,7 +760,7 @@
     ]
   },
   {
-    "id": 40,
+    "id": 41,
     "name": "Blusa Verde Neon",
     "price": 50,
     "description": "Blusa verde neon, modelo solto e leve para treino",
@@ -766,7 +777,7 @@
     ]
   },
   {
-    "id": 41,
+    "id": 42,
     "name": "Blusa Branca",
     "price": 50,
     "description": "Blusa branca leve e respirável, perfeita para o dia a dia e treino",
@@ -784,7 +795,7 @@
     ]
   },
   {
-    "id": 42,
+    "id": 43,
     "name": "Blusa Azul",
     "price": 50,
     "description": "Regata azul com tecido leve e respirável, ideal para treinos",
@@ -802,7 +813,7 @@
     ]
   },
   {
-    "id": 43,
+    "id": 44,
     "name": "Jaqueta Corta-Vento",
     "price": 99.9,
     "description": "Jaqueta corta-vento com capuz e zíper, leve e respirável, perfeita para treinos ao ar livre. Disponível em 4 cores.",
