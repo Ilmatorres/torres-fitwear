@@ -832,5 +832,22 @@
         "stock": 1
       }
     ]
+  },
+  {
+    "id": 45,
+    "name": "Conjunto Canelado Rosa",
+    "price": 110,
+    "description": "Top halter + short canelado na cor rosa, tecido com textura canelada",
+    "images": [
+      "assets/products/conjunto-canelado-rosa-1.jpeg"
+    ],
+    "category": "tamanho-unico",
+    "colors": [
+      {
+        "name": "Rosa",
+        "hex": "#ec4899",
+        "stock": 1
+      }
+    ]
   }
 ]
