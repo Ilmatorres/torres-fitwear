@@ -87,7 +87,7 @@
       {
         "name": "Preto",
         "hex": "#000000",
-        "stock": 1
+        "stock": 0
       }
     ]
   },
@@ -177,7 +177,7 @@
       {
         "name": "Cinza",
         "hex": "#6b7280",
-        "stock": 1
+        "stock": 0
       }
     ]
   },
@@ -376,7 +376,7 @@
       {
         "name": "Azul Marinho",
         "hex": "#1e3a5f",
-        "stock": 1
+        "stock": 0
       }
     ]
   },
@@ -430,7 +430,7 @@
       {
         "name": "Azul Marinho",
         "hex": "#1e3a5f",
-        "stock": 1
+        "stock": 0
       }
     ]
   },
@@ -560,7 +560,7 @@
       {
         "name": "Marsala",
         "hex": "#9b2c4f",
-        "stock": 1
+        "stock": 0
       }
     ]
   },
@@ -577,7 +577,7 @@
       {
         "name": "Azul Marinho",
         "hex": "#1e3a5f",
-        "stock": 1
+        "stock": 0
       }
     ]
   },
