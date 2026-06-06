@@ -849,5 +849,215 @@
         "stock": 0
       }
     ]
+  },
+  {
+    "id": 46,
+    "name": "Conjunto Bermuda Preto",
+    "price": 132.90,
+    "description": "Top com alças cruzadas + bermuda preta sem bolso, modelagem confortável",
+    "images": [
+      "assets/products/conjunto-bermuda-preto-1.jpeg"
+    ],
+    "category": "tamanho-unico",
+    "colors": [
+      {
+        "name": "Preto",
+        "hex": "#000000",
+        "stock": 1
+      }
+    ]
+  },
+  {
+    "id": 47,
+    "name": "Macaquinho Preto",
+    "price": 129.90,
+    "description": "Macaquinho preto canelado com alças cruzadas nas costas, comprimento bermuda",
+    "images": [
+      "assets/products/macaquinho-preto-novo-1.jpeg"
+    ],
+    "category": "tamanho-unico",
+    "colors": [
+      {
+        "name": "Preto",
+        "hex": "#000000",
+        "stock": 1
+      }
+    ]
+  },
+  {
+    "id": 48,
+    "name": "Macaquinho Rosé",
+    "price": 129.90,
+    "description": "Macaquinho rosé com viés preto no decote e costas abertas, comprimento bermuda",
+    "images": [
+      "assets/products/macaquinho-rose-1.jpeg"
+    ],
+    "category": "tamanho-unico",
+    "colors": [
+      {
+        "name": "Rosé",
+        "hex": "#b56576",
+        "stock": 1
+      }
+    ]
+  },
+  {
+    "id": 49,
+    "name": "Macaquinho Preto Alças Duplas",
+    "price": 129.90,
+    "description": "Macaquinho preto canelado com alças duplas cruzadas nas costas, comprimento bermuda",
+    "images": [
+      "assets/products/macaquinho-preto-alcas-duplas-1.jpeg"
+    ],
+    "category": "tamanho-unico",
+    "colors": [
+      {
+        "name": "Preto",
+        "hex": "#000000",
+        "stock": 1
+      }
+    ]
+  },
+  {
+    "id": 50,
+    "name": "Conjunto Calça Rosa Claro",
+    "price": 145.90,
+    "description": "Top com alças cruzadas + calça longa rosa claro, tecido com leve textura",
+    "images": [
+      "assets/products/conjunto-calca-rosa-1.jpeg"
+    ],
+    "category": "tamanho-unico",
+    "colors": [
+      {
+        "name": "Rosa Claro",
+        "hex": "#f7b8c5",
+        "stock": 1
+      }
+    ]
+  },
+  {
+    "id": 51,
+    "name": "Conjunto Calça Preto Halter",
+    "price": 145.90,
+    "description": "Top halter cruzado no pescoço + calça longa preta",
+    "images": [
+      "assets/products/conjunto-calca-preto-halter-1.jpeg"
+    ],
+    "category": "tamanho-unico",
+    "colors": [
+      {
+        "name": "Preto",
+        "hex": "#000000",
+        "stock": 1
+      }
+    ]
+  },
+  {
+    "id": 52,
+    "name": "Conjunto Calça Preto Canelado",
+    "price": 145.90,
+    "description": "Top + calça canelada preta com cordão na cintura",
+    "images": [
+      "assets/products/conjunto-calca-preto-canelado-1.jpeg"
+    ],
+    "category": "tamanho-unico",
+    "colors": [
+      {
+        "name": "Preto",
+        "hex": "#000000",
+        "stock": 1
+      }
+    ]
+  },
+  {
+    "id": 53,
+    "name": "Conjunto Calça Bege Canelado",
+    "price": 145.90,
+    "description": "Top com alças duplas + calça canelada bege com bolso lateral",
+    "images": [
+      "assets/products/conjunto-calca-bege-canelado-1.jpeg"
+    ],
+    "category": "tamanho-unico",
+    "colors": [
+      {
+        "name": "Bege",
+        "hex": "#c9a890",
+        "stock": 1
+      }
+    ]
+  },
+  {
+    "id": 54,
+    "name": "Conjunto Calça Azul Claro",
+    "price": 145.90,
+    "description": "Top com alças cruzadas + calça longa azul claro",
+    "images": [
+      "assets/products/conjunto-calca-azul-claro-1.jpeg"
+    ],
+    "category": "tamanho-unico",
+    "colors": [
+      {
+        "name": "Azul Claro",
+        "hex": "#a8c5e0",
+        "stock": 1
+      }
+    ]
+  },
+  {
+    "id": 55,
+    "name": "Conjunto Bermuda Bege Canelado",
+    "price": 142.90,
+    "description": "Top + bermuda canelada bege com bolso lateral",
+    "images": [
+      "assets/products/conjunto-bermuda-bege-canelado-1.jpeg"
+    ],
+    "category": "tamanho-unico",
+    "colors": [
+      {
+        "name": "Bege",
+        "hex": "#c9a890",
+        "stock": 1
+      }
+    ]
+  },
+  {
+    "id": 56,
+    "name": "Camiseta Esportiva",
+    "price": 39.90,
+    "description": "Camiseta esportiva em tecido leve para treino, disponível em vermelho e cinza",
+    "images": [
+      "assets/products/camiseta-vermelha-1.jpeg",
+      "assets/products/camiseta-cinza-1.jpeg"
+    ],
+    "category": "blusas",
+    "colors": [
+      {
+        "name": "Vermelho",
+        "hex": "#dc2626",
+        "stock": 1
+      },
+      {
+        "name": "Cinza",
+        "hex": "#4b5563",
+        "stock": 1
+      }
+    ]
+  },
+  {
+    "id": 57,
+    "name": "Conjunto Bermuda Preto Canelado",
+    "price": 132.90,
+    "description": "Top alças finas com detalhe no decote + bermuda canelada preta sem bolso",
+    "images": [
+      "assets/products/conjunto-bermuda-preto-canelado-1.jpeg"
+    ],
+    "category": "tamanho-unico",
+    "colors": [
+      {
+        "name": "Preto",
+        "hex": "#000000",
+        "stock": 1
+      }
+    ]
   }
 ]
