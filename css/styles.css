@@ -980,126 +980,62 @@ body {
     background: linear-gradient(90deg, transparent, var(--primary-purple), var(--accent-purple), transparent);
 }
 
-.testimonials-slider {
-    max-width: 700px;
+.feedback-grid {
+    max-width: 1100px;
     margin: 3rem auto 0;
-    position: relative;
-    min-height: 280px;
-}
-
-.testimonial-card {
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 40px;
-    background: linear-gradient(135deg, rgba(45, 27, 78, 0.03), rgba(196, 122, 58, 0.03));
-    border-radius: 16px;
-    border: 1px solid var(--border-color);
-    animation: fadeInUp 0.5s ease;
-}
-
-.testimonial-card.active {
-    display: flex;
-}
-
-.testimonial-stars {
-    color: var(--accent-gold);
-    font-size: 1.4rem;
-    letter-spacing: 4px;
-    margin-bottom: 20px;
-}
-
-.testimonial-text {
-    font-size: 1.15rem;
-    line-height: 1.8;
-    color: #555;
-    font-style: italic;
-    margin-bottom: 24px;
-    max-width: 550px;
-}
-
-.testimonial-author {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.testimonial-avatar {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--primary-purple), var(--accent-purple));
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 1.2rem;
-}
-
-.testimonial-author div:last-child {
-    text-align: left;
-}
-
-.testimonial-author strong {
-    display: block;
-    color: var(--text-dark);
-    font-size: 1rem;
-}
-
-.testimonial-author span {
-    font-size: 0.85rem;
-    color: var(--primary-purple);
-    opacity: 0.8;
-}
-
-.testimonials-nav {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: 16px;
-    margin-top: 24px;
 }
 
-.testimonial-nav-btn {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 2px solid var(--border-color);
-    background: white;
+.feedback-tile {
+    position: relative;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    border-radius: 14px;
     cursor: pointer;
-    font-size: 1.1rem;
-    color: var(--primary-purple);
-    transition: var(--transition);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    border: 1px solid var(--border-color);
+    background: var(--light-bg);
+    box-shadow: 0 2px 6px rgba(45, 27, 78, 0.06);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
-.testimonial-nav-btn:hover {
-    background: var(--primary-purple);
-    color: white;
-    border-color: var(--primary-purple);
+.feedback-tile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
 }
 
-.testimonial-dots {
-    display: flex;
-    gap: 8px;
+.feedback-tile::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 60%, rgba(45, 27, 78, 0.45));
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
 }
 
-.testimonial-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: var(--border-color);
-    cursor: pointer;
-    transition: var(--transition);
+.feedback-tile:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(45, 27, 78, 0.18);
 }
 
-.testimonial-dot.active {
-    background: var(--primary-purple);
-    transform: scale(1.2);
+.feedback-tile:hover img {
+    transform: scale(1.05);
+}
+
+.feedback-tile:hover::after {
+    opacity: 1;
+}
+
+@media (max-width: 640px) {
+    .feedback-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
 }
 
 /* ========== About Section ========== */
@@ -2260,14 +2196,6 @@ body {
 
     .cart-modal-content {
         max-width: 100%;
-    }
-
-    .testimonial-card {
-        padding: 24px;
-    }
-
-    .testimonial-text {
-        font-size: 1rem;
     }
 
     .size-guide-content {

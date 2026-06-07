@@ -705,41 +705,32 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// ========== Testimonials ==========
-let currentTestimonial = 0;
-const testimonialCards = document.querySelectorAll('.testimonial-card');
-const testimonialDotsContainer = document.getElementById('testimonialDots');
+// ========== Customer Feedback Gallery ==========
+const FEEDBACK_IMAGES = Array.from({ length: 12 }, (_, i) => `assets/feedback/cliente-${i + 1}.jpeg`);
 
-function initTestimonials() {
-    if (!testimonialDotsContainer || testimonialCards.length === 0) return;
-    testimonialCards.forEach((_, i) => {
-        const dot = document.createElement('div');
-        dot.classList.add('testimonial-dot');
-        if (i === 0) dot.classList.add('active');
-        dot.addEventListener('click', () => goToTestimonial(i));
-        testimonialDotsContainer.appendChild(dot);
-    });
-    setInterval(() => changeTestimonial(1), 6000);
+function initFeedbackGallery() {
+    const grid = document.getElementById('feedbackGrid');
+    if (!grid) return;
+    grid.innerHTML = FEEDBACK_IMAGES.map((src, i) => `
+        <div class="feedback-tile" onclick="openFeedbackLightbox(${i})">
+            <img src="${src}" alt="Feedback de cliente ${i + 1}" loading="lazy">
+        </div>
+    `).join('');
 }
 
-function changeTestimonial(dir) {
-    testimonialCards[currentTestimonial].classList.remove('active');
-    currentTestimonial = (currentTestimonial + dir + testimonialCards.length) % testimonialCards.length;
-    testimonialCards[currentTestimonial].classList.add('active');
-    updateDots();
-}
-
-function goToTestimonial(i) {
-    testimonialCards[currentTestimonial].classList.remove('active');
-    currentTestimonial = i;
-    testimonialCards[currentTestimonial].classList.add('active');
-    updateDots();
-}
-
-function updateDots() {
-    document.querySelectorAll('.testimonial-dot').forEach((dot, i) => {
-        dot.classList.toggle('active', i === currentTestimonial);
-    });
+function openFeedbackLightbox(startIndex = 0) {
+    lightboxImages = FEEDBACK_IMAGES;
+    lightboxIndex = startIndex;
+    const lightbox = document.getElementById('imageLightbox');
+    const img = document.getElementById('lightboxImg');
+    const counter = document.getElementById('lightboxCounter');
+    if (!lightbox || !img) return;
+    img.src = lightboxImages[lightboxIndex];
+    counter.textContent = `${lightboxIndex + 1} / ${lightboxImages.length}`;
+    document.querySelector('.lightbox-prev').style.display = '';
+    document.querySelector('.lightbox-next').style.display = '';
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
 }
 
 // ========== Size Guide ==========
@@ -838,7 +829,7 @@ window.addEventListener('load', () => {
     cart.updateCartBadge();
     renderProducts();
     initializeAdmin();
-    initTestimonials();
+    initFeedbackGallery();
     loadProductsFromRepo();
 });
 
