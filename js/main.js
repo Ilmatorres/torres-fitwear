@@ -707,6 +707,20 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // ========== Customer Feedback Carousel ==========
 const FEEDBACK_IMAGES = Array.from({ length: 12 }, (_, i) => `assets/feedback/cliente-${i + 1}.jpeg`);
+const FEEDBACK_TEXTS = [
+    "Amei o conjunto, qualidade incrível!",
+    "Cliente linda usando Torres Fitwear ❤",
+    "Tecido maravilhoso, super confortável!",
+    "Veste muito bem, recomendo demais!",
+    "Compressão perfeita pra treinar!",
+    "Caimento lindo, encaixe perfeito!",
+    "Já é meu favorito do armário!",
+    "Atendimento impecável, amei tudo!",
+    "Apaixonada pelo modelo!",
+    "Combina com qualquer treino!",
+    "Maravilhoso, muito obrigada!",
+    "Não saio sem ele na academia!"
+];
 let feedbackIndex = 0;
 let feedbackAutoTimer = null;
 
@@ -724,7 +738,13 @@ function initFeedbackGallery() {
 
     track.innerHTML = FEEDBACK_IMAGES.map((src, i) => `
         <div class="feedback-tile" onclick="openFeedbackLightbox(${i})">
-            <img src="${src}" alt="Feedback de cliente ${i + 1}" loading="lazy">
+            <div class="feedback-photo">
+                <img src="${src}" alt="Feedback de cliente ${i + 1}" loading="lazy">
+            </div>
+            <div class="feedback-caption">
+                <div class="feedback-stars">★★★★★</div>
+                <div class="feedback-text">${FEEDBACK_TEXTS[i] || ''}</div>
+            </div>
         </div>
     `).join('');
 

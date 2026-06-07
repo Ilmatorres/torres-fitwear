@@ -989,7 +989,8 @@ body {
 }
 
 .feedback-viewport {
-    flex: 1;
+    flex: 1 1 0;
+    min-width: 0;
     overflow: hidden;
     border-radius: 14px;
 }
@@ -997,6 +998,7 @@ body {
 .feedback-track {
     display: flex;
     gap: 16px;
+    width: 100%;
     transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     will-change: transform;
 }
@@ -1004,14 +1006,22 @@ body {
 .feedback-tile {
     position: relative;
     flex: 0 0 calc((100% - 32px) / 3);
-    aspect-ratio: 3 / 4;
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
     border-radius: 14px;
     cursor: pointer;
     border: 1px solid var(--border-color);
-    background: var(--light-bg);
+    background: white;
     box-shadow: 0 2px 6px rgba(45, 27, 78, 0.06);
     transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.feedback-photo {
+    position: relative;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    background: var(--light-bg);
 }
 
 .feedback-tile img {
@@ -1022,7 +1032,7 @@ body {
     transition: transform 0.5s ease;
 }
 
-.feedback-tile::after {
+.feedback-photo::after {
     content: '';
     position: absolute;
     inset: 0;
@@ -1030,6 +1040,26 @@ body {
     opacity: 0;
     transition: opacity 0.35s ease;
     pointer-events: none;
+}
+
+.feedback-caption {
+    padding: 14px 16px 16px;
+    text-align: center;
+    background: white;
+}
+
+.feedback-stars {
+    color: var(--accent-gold);
+    font-size: 0.95rem;
+    letter-spacing: 3px;
+    margin-bottom: 6px;
+}
+
+.feedback-text {
+    font-size: 0.92rem;
+    color: #555;
+    font-style: italic;
+    line-height: 1.4;
 }
 
 .feedback-tile:hover {
@@ -1040,7 +1070,7 @@ body {
     transform: scale(1.05);
 }
 
-.feedback-tile:hover::after {
+.feedback-tile:hover .feedback-photo::after {
     opacity: 1;
 }
 
