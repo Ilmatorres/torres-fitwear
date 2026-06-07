@@ -1024,10 +1024,10 @@
     "id": 56,
     "name": "Camiseta Esportiva",
     "price": 39.90,
-    "description": "Camiseta esportiva em tecido leve para treino, disponível em vermelho e cinza",
+    "description": "Camiseta esportiva em tecido leve para treino, disponível em vermelho e preto",
     "images": [
       "assets/products/camiseta-vermelha-1.jpeg",
-      "assets/products/camiseta-cinza-1.jpeg"
+      "assets/products/camiseta-preta-1.jpeg"
     ],
     "category": "blusas",
     "colors": [
@@ -1037,8 +1037,8 @@
         "stock": 1
       },
       {
-        "name": "Cinza",
-        "hex": "#4b5563",
+        "name": "Preto",
+        "hex": "#000000",
         "stock": 1
       }
     ]
