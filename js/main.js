@@ -705,17 +705,82 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// ========== Customer Feedback Gallery ==========
+// ========== Customer Feedback Carousel ==========
 const FEEDBACK_IMAGES = Array.from({ length: 12 }, (_, i) => `assets/feedback/cliente-${i + 1}.jpeg`);
+let feedbackIndex = 0;
+let feedbackAutoTimer = null;
+
+function getFeedbackVisible() {
+    const w = window.innerWidth;
+    if (w <= 600) return 1;
+    if (w <= 900) return 2;
+    return 3;
+}
 
 function initFeedbackGallery() {
-    const grid = document.getElementById('feedbackGrid');
-    if (!grid) return;
-    grid.innerHTML = FEEDBACK_IMAGES.map((src, i) => `
+    const track = document.getElementById('feedbackTrack');
+    const dots = document.getElementById('feedbackDots');
+    if (!track || !dots) return;
+
+    track.innerHTML = FEEDBACK_IMAGES.map((src, i) => `
         <div class="feedback-tile" onclick="openFeedbackLightbox(${i})">
             <img src="${src}" alt="Feedback de cliente ${i + 1}" loading="lazy">
         </div>
     `).join('');
+
+    feedbackIndex = 0;
+    renderFeedbackDots();
+    updateFeedbackTrack();
+    startFeedbackAuto();
+
+    window.addEventListener('resize', () => {
+        const maxIdx = Math.max(0, FEEDBACK_IMAGES.length - getFeedbackVisible());
+        if (feedbackIndex > maxIdx) feedbackIndex = maxIdx;
+        renderFeedbackDots();
+        updateFeedbackTrack();
+    });
+}
+
+function renderFeedbackDots() {
+    const dots = document.getElementById('feedbackDots');
+    if (!dots) return;
+    const visible = getFeedbackVisible();
+    const pages = Math.max(1, FEEDBACK_IMAGES.length - visible + 1);
+    dots.innerHTML = Array.from({ length: pages }, (_, i) =>
+        `<button class="feedback-dot${i === feedbackIndex ? ' active' : ''}" onclick="feedbackGoTo(${i})" aria-label="Slide ${i + 1}"></button>`
+    ).join('');
+}
+
+function updateFeedbackTrack() {
+    const track = document.getElementById('feedbackTrack');
+    if (!track) return;
+    const visible = getFeedbackVisible();
+    const gap = visible === 1 ? 0 : (visible === 2 ? 16 : 16);
+    const tileWidth = (track.parentElement.clientWidth - gap * (visible - 1)) / visible;
+    const offset = feedbackIndex * (tileWidth + gap);
+    track.style.transform = `translateX(-${offset}px)`;
+    document.querySelectorAll('.feedback-dot').forEach((d, i) => {
+        d.classList.toggle('active', i === feedbackIndex);
+    });
+}
+
+function feedbackNav(dir) {
+    const visible = getFeedbackVisible();
+    const maxIdx = Math.max(0, FEEDBACK_IMAGES.length - visible);
+    feedbackIndex = (feedbackIndex + dir + (maxIdx + 1)) % (maxIdx + 1);
+    updateFeedbackTrack();
+    startFeedbackAuto();
+}
+
+function feedbackGoTo(i) {
+    feedbackIndex = i;
+    updateFeedbackTrack();
+    startFeedbackAuto();
+}
+
+function startFeedbackAuto() {
+    if (feedbackAutoTimer) clearInterval(feedbackAutoTimer);
+    feedbackAutoTimer = setInterval(() => feedbackNav(1), 5000);
 }
 
 function openFeedbackLightbox(startIndex = 0) {

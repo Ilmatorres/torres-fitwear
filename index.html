@@ -482,7 +482,14 @@
         <div class="container">
             <h2 class="section-title">O Que Nossas Clientes Dizem</h2>
             <p class="section-subtitle">Mulheres reais, resultados reais</p>
-            <div class="feedback-grid" id="feedbackGrid"></div>
+            <div class="feedback-carousel">
+                <button class="feedback-nav feedback-prev" onclick="feedbackNav(-1)" aria-label="Anterior">&#8592;</button>
+                <div class="feedback-viewport">
+                    <div class="feedback-track" id="feedbackTrack"></div>
+                </div>
+                <button class="feedback-nav feedback-next" onclick="feedbackNav(1)" aria-label="Próximo">&#8594;</button>
+            </div>
+            <div class="feedback-dots" id="feedbackDots"></div>
         </div>
     </section>
 
