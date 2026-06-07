@@ -707,6 +707,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // ========== Customer Feedback Carousel ==========
 const FEEDBACK_IMAGES = [
+    "assets/feedback/cliente-13.png",
+    "assets/feedback/cliente-14.png",
+    "assets/feedback/cliente-15.png",
+    "assets/feedback/cliente-16.png",
     "assets/feedback/cliente-1.jpeg",
     "assets/feedback/cliente-2.jpeg",
     "assets/feedback/cliente-3.jpeg",
@@ -718,13 +722,13 @@ const FEEDBACK_IMAGES = [
     "assets/feedback/cliente-9.jpeg",
     "assets/feedback/cliente-10.jpeg",
     "assets/feedback/cliente-11.jpeg",
-    "assets/feedback/cliente-12.jpeg",
-    "assets/feedback/cliente-13.png",
-    "assets/feedback/cliente-14.png",
-    "assets/feedback/cliente-15.png",
-    "assets/feedback/cliente-16.png"
+    "assets/feedback/cliente-12.jpeg"
 ];
 const FEEDBACK_TEXTS = [
+    "Tecido muito bom, serviu perfeito!",
+    "Amei esse conjunto, caiu que nem uma luva ❤",
+    "Lindo conjunto, recomendo!",
+    "Maravilhosa de rosa! 💕",
     "Amei o conjunto, qualidade incrível!",
     "Cliente linda usando Torres Fitwear ❤",
     "Tecido maravilhoso, super confortável!",
@@ -736,11 +740,7 @@ const FEEDBACK_TEXTS = [
     "Apaixonada pelo modelo!",
     "Combina com qualquer treino!",
     "Maravilhoso, muito obrigada!",
-    "Não saio sem ele na academia!",
-    "Tecido muito bom, serviu perfeito!",
-    "Amei esse conjunto, caiu que nem uma luva ❤",
-    "Lindo conjunto, recomendo!",
-    "Maravilhosa de rosa! 💕"
+    "Não saio sem ele na academia!"
 ];
 let feedbackIndex = 0;
 let feedbackAutoTimer = null;
