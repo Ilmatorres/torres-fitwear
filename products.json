@@ -948,7 +948,7 @@
       {
         "name": "Preto",
         "hex": "#000000",
-        "stock": 1
+        "stock": 0
       }
     ]
   },
@@ -982,7 +982,7 @@
       {
         "name": "Bege",
         "hex": "#c9a890",
-        "stock": 1
+        "stock": 0
       }
     ]
   },
