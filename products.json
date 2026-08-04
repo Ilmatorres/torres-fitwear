@@ -32,7 +32,7 @@
       {
         "name": "Vermelho",
         "hex": "#dc2626",
-        "stock": 1
+        "stock": 0
       }
     ]
   },
@@ -69,7 +69,7 @@
       {
         "name": "Azul",
         "hex": "#6f7fb0",
-        "stock": 1
+        "stock": 0
       }
     ]
   },
@@ -105,7 +105,7 @@
       {
         "name": "Azul Marinho",
         "hex": "#1e3a5f",
-        "stock": 1
+        "stock": 0
       }
     ]
   },
@@ -123,7 +123,7 @@
       {
         "name": "Branco e Preto",
         "hex": "linear-gradient(90deg,#ffffff 50%,#000000 50%)",
-        "stock": 1
+        "stock": 0
       }
     ]
   },
@@ -141,7 +141,7 @@
       {
         "name": "Preto",
         "hex": "#000000",
-        "stock": 1
+        "stock": 0
       }
     ]
   },
