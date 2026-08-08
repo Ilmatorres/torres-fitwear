@@ -1,14 +1,13 @@
+functionsDirectory = "/Users/ilmatorres/pagina-torres-fitwear/netlify/functions"
+functionsDirectoryOrigin = "config-v1"
 plugins = []
 headers = []
 redirects = []
 
-[functions]
-
-[functions."*"]
-
 [build]
 publish = "/Users/ilmatorres/pagina-torres-fitwear"
-publishOrigin = "default"
+publishOrigin = "config"
+functions = "/Users/ilmatorres/pagina-torres-fitwear/netlify/functions"
 
 [build.environment]
 
@@ -23,3 +22,8 @@ publishOrigin = "default"
 [build.processing.js]
 
 [build.services]
+
+[functions]
+
+[functions."*"]
+node_bundler = "esbuild"
