@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name": "Macacão Plus Pink",
-    "price": 160,
+    "price": 175,
     "description": "Macacão fitness plus size na cor pink, modelagem perfeita com detalhe nas costas",
     "images": [
       "assets/products/macacao-plus-pink-1.jpeg",
@@ -21,7 +21,7 @@
   {
     "id": 2,
     "name": "Conjunto Plus Vermelho",
-    "price": 159,
+    "price": 174,
     "description": "Top + legging plus size vermelho marsala, cintura alta e costas trançadas",
     "images": [
       "assets/products/conjunto-plus-vermelho-1.jpeg",
@@ -39,7 +39,7 @@
   {
     "id": 3,
     "name": "Conjunto Plus Verde",
-    "price": 149,
+    "price": 164,
     "description": "Top + legging plus size verde esmeralda, tecido brilhoso e compressão leve",
     "images": [
       "assets/products/conjunto-plus-verde-1.jpeg",
@@ -76,7 +76,7 @@
   {
     "id": 5,
     "name": "Conjunto Plus Preto",
-    "price": 150,
+    "price": 165,
     "description": "Top + legging plus size preto, tecido brilhoso e elegante",
     "images": [
       "assets/products/conjunto-plus-preto-1.jpeg",
@@ -112,7 +112,7 @@
   {
     "id": 7,
     "name": "Conjunto Plus Branco e Preto",
-    "price": 150,
+    "price": 165,
     "description": "Conjunto plus size bicolor: top branco + legging preta, costas nadador e conforto total. As duas cores vêm juntas no conjunto.",
     "images": [
       "assets/products/conjunto-plus-branco-1.jpeg",
@@ -130,7 +130,7 @@
   {
     "id": 8,
     "name": "Conjunto Plus Short",
-    "price": 135,
+    "price": 150,
     "description": "Regata + short bike plus size preto, perfeito para treino e dia a dia",
     "images": [
       "assets/products/conjunto-plus-short-1.jpeg",
@@ -148,7 +148,7 @@
   {
     "id": 9,
     "name": "Macaquinho Bege Detalhe Branco",
-    "price": 100,
+    "price": 115,
     "description": "Macaquinho bege brilhoso com viés branco no decote e costas cruzadas, peça única elegante",
     "images": [
       "assets/products/conjunto-bege-short-1.jpeg",
@@ -166,7 +166,7 @@
   {
     "id": 10,
     "name": "Conjunto Cinza",
-    "price": 115,
+    "price": 130,
     "description": "Top cropped + legging cinza, tecido macio e confortável",
     "images": [
       "assets/products/conjunto-cinza-1.jpeg",
@@ -184,7 +184,7 @@
   {
     "id": 11,
     "name": "Conjunto Azul Claro",
-    "price": 149,
+    "price": 164,
     "description": "Top + legging azul claro, tecido brilhoso com compressão leve",
     "images": [
       "assets/products/conjunto-azul-claro-1.jpeg",
@@ -202,7 +202,7 @@
   {
     "id": 12,
     "name": "Conjunto Azul Royal",
-    "price": 125,
+    "price": 140,
     "description": "Top triângulo + short azul royal, estilo praiano fitness",
     "images": [
       "assets/products/conjunto-azul-royal-1.jpeg",
@@ -220,7 +220,7 @@
   {
     "id": 13,
     "name": "Conjunto Amarelo Short",
-    "price": 139,
+    "price": 154,
     "description": "Top + short bike na cor amarelo, vibrante e elegante, tecido premium",
     "images": [
       "assets/products/conjunto-dourado-1.jpeg"
@@ -237,7 +237,7 @@
   {
     "id": 14,
     "name": "Conjunto Amarelo Manteiga Legging",
-    "price": 149,
+    "price": 164,
     "description": "Top + legging na cor amarelo manteiga, visual sofisticado e confortável",
     "images": [
       "assets/products/conjunto-creme-1.jpeg",
@@ -255,7 +255,7 @@
   {
     "id": 15,
     "name": "Conjunto Oliva Short",
-    "price": 100,
+    "price": 115,
     "description": "Top cropped + short bike verde oliva, tecido canelado",
     "images": [
       "assets/products/conjunto-oliva-1.jpeg",
@@ -274,7 +274,7 @@
   {
     "id": 16,
     "name": "Macaquinho Rosa",
-    "price": 115,
+    "price": 130,
     "description": "Macaquinho rosa claro com detalhe nas costas trançado",
     "images": [
       "assets/products/macaquinho-rosa-1.jpeg",
@@ -292,7 +292,7 @@
   {
     "id": 17,
     "name": "Conjunto Chumbo",
-    "price": 190,
+    "price": 205,
     "description": "Regata + legging chumbo com detalhe branco, estilo esportivo",
     "images": [
       "assets/products/conjunto-chumbo-1.jpeg",
@@ -310,7 +310,7 @@
   {
     "id": 18,
     "name": "Macacão Verde Água",
-    "price": 150,
+    "price": 165,
     "description": "Macacão menta/verde água com costas abertas cruzadas, peça única elegante",
     "images": [
       "assets/products/macacao-verde-agua-1.jpeg",
@@ -329,7 +329,7 @@
   {
     "id": 19,
     "name": "Macaquinho Preto Animal Print",
-    "price": 115,
+    "price": 130,
     "description": "Macaquinho preto com textura animal print, costas abertas e alças cruzadas",
     "images": [
       "assets/products/macaquinho-marinho-1.jpeg",
@@ -347,7 +347,7 @@
   {
     "id": 20,
     "name": "Macaquinho Marsala",
-    "price": 115,
+    "price": 130,
     "description": "Macaquinho cor marsala texturizado com costas abertas e alças cruzadas",
     "images": [
       "assets/products/macaquinho-marsala-1.jpeg",
@@ -365,7 +365,7 @@
   {
     "id": 21,
     "name": "Conjunto Marinho",
-    "price": 139,
+    "price": 154,
     "description": "Top + legging azul marinho com costas abertas, clássico e elegante",
     "images": [
       "assets/products/conjunto-marinho-1.jpeg",
@@ -383,7 +383,7 @@
   {
     "id": 22,
     "name": "Macaquinho Preto Cruzado",
-    "price": 150,
+    "price": 165,
     "description": "Macaquinho preto curto com costas cruzadas, visual poderoso e versátil",
     "images": [
       "assets/products/macacao-preto-1.jpeg",
@@ -401,7 +401,7 @@
   {
     "id": 23,
     "name": "Macaquinho Bege com Recorte",
-    "price": 125,
+    "price": 140,
     "description": "Macaquinho bege com recorte assimétrico e viés verde oliva, peça única moderna",
     "images": [
       "assets/products/conjunto-bege-crop-1.jpeg",
@@ -419,7 +419,7 @@
   {
     "id": 24,
     "name": "Conjunto Marinho Zebra",
-    "price": 150,
+    "price": 165,
     "description": "Conjunto azul marinho com textura zebra, top + legging com costas abertas, conjunto duas peças",
     "images": [
       "assets/products/macacao-sage-1.jpeg",
@@ -437,7 +437,7 @@
   {
     "id": 25,
     "name": "Macaquinho Menta",
-    "price": 115,
+    "price": 130,
     "description": "Macaquinho menta/verde claro com costas cruzadas",
     "images": [
       "assets/products/macaquinho-menta-1.jpeg",
@@ -455,7 +455,7 @@
   {
     "id": 26,
     "name": "Conjunto Verde Esmeralda",
-    "price": 139,
+    "price": 154,
     "description": "Top + short verde esmeralda, estilo moderno e elegante",
     "images": [
       "assets/products/conjunto-bicolor-1.jpeg",
@@ -473,7 +473,7 @@
   {
     "id": 27,
     "name": "Conjunto Verde e Roxo Short",
-    "price": 150,
+    "price": 165,
     "description": "Conjunto bicolor: top verde + short roxo com bolso lateral. As duas cores vêm juntas no conjunto.",
     "images": [
       "assets/products/macacao-manga-longa-1.jpeg",
@@ -491,7 +491,7 @@
   {
     "id": 28,
     "name": "Conjunto Bicolor com Viés Branco",
-    "price": 125,
+    "price": 140,
     "description": "Conjunto bicolor com viés branco nas bordas, top + short bike. Disponível em duas combinações: preto e branco ou azul marinho e branco.",
     "images": [
       "assets/products/conjunto-marinho-branco-1.jpeg",
@@ -514,7 +514,7 @@
   {
     "id": 29,
     "name": "Macacão Preto",
-    "price": 125,
+    "price": 140,
     "description": "Macacão preto comprido com alças finas e costas em V abertas, peça única elegante",
     "images": [
       "assets/products/conjunto-preto-branco-1.jpeg",
@@ -532,7 +532,7 @@
   {
     "id": 30,
     "name": "Conjunto Preto",
-    "price": 110,
+    "price": 125,
     "description": "Conjunto preto top + legging, modelagem clássica para treino e dia a dia",
     "images": [
       "assets/products/conjunto-preto-novo-1.jpeg",
@@ -550,7 +550,7 @@
   {
     "id": 31,
     "name": "Conjunto Canelado Marsala",
-    "price": 110,
+    "price": 125,
     "description": "Conjunto canelado top + short na cor marsala, tecido com textura e caimento perfeito",
     "images": [
       "assets/products/conjunto-canelado-marsala-1.jpeg"
@@ -567,7 +567,7 @@
   {
     "id": 32,
     "name": "Conjunto Canelado Marinho",
-    "price": 110,
+    "price": 125,
     "description": "Conjunto canelado top + short azul marinho, tecido com textura canelada elegante",
     "images": [
       "assets/products/conjunto-canelado-marinho-1.jpeg"
@@ -584,7 +584,7 @@
   {
     "id": 33,
     "name": "Short Canelado",
-    "price": 55,
+    "price": 70,
     "description": "Short bike canelado, tecido com textura. Disponível em várias cores: bege, azul marinho, marsala, branco e oliva",
     "images": [
       "assets/products/short-canelado-1.jpeg",
@@ -800,7 +800,7 @@
   {
     "id": 44,
     "name": "Jaqueta Corta-Vento",
-    "price": 99.9,
+    "price": 114.9,
     "description": "Jaqueta corta-vento com capuz e zíper, leve e respirável, perfeita para treinos ao ar livre. Disponível em 4 cores.",
     "images": [
       "assets/products/jaqueta-corta-vento-1.jpeg",
@@ -836,7 +836,7 @@
   {
     "id": 45,
     "name": "Conjunto Canelado Rosa",
-    "price": 110,
+    "price": 125,
     "description": "Top halter + short canelado na cor rosa, tecido com textura canelada",
     "images": [
       "assets/products/conjunto-canelado-rosa-1.jpeg"
@@ -853,7 +853,7 @@
   {
     "id": 46,
     "name": "Conjunto Bermuda Preto",
-    "price": 132.90,
+    "price": 147.9,
     "description": "Top com alças cruzadas + bermuda preta sem bolso, modelagem confortável",
     "images": [
       "assets/products/conjunto-bermuda-preto-1.jpeg"
@@ -870,7 +870,7 @@
   {
     "id": 47,
     "name": "Macaquinho Preto",
-    "price": 129.90,
+    "price": 144.9,
     "description": "Macaquinho preto canelado com alças cruzadas nas costas, comprimento bermuda",
     "images": [
       "assets/products/macaquinho-preto-novo-1.jpeg"
@@ -887,7 +887,7 @@
   {
     "id": 48,
     "name": "Macaquinho Rosé",
-    "price": 129.90,
+    "price": 144.9,
     "description": "Macaquinho rosé com viés preto no decote e costas abertas, comprimento bermuda",
     "images": [
       "assets/products/macaquinho-rose-1.jpeg"
@@ -904,7 +904,7 @@
   {
     "id": 49,
     "name": "Macaquinho Preto Alças Duplas",
-    "price": 129.90,
+    "price": 144.9,
     "description": "Macaquinho preto canelado com alças duplas cruzadas nas costas, comprimento bermuda",
     "images": [
       "assets/products/macaquinho-preto-alcas-duplas-1.jpeg"
@@ -921,7 +921,7 @@
   {
     "id": 50,
     "name": "Conjunto Calça Rosa Claro",
-    "price": 145.90,
+    "price": 160.9,
     "description": "Top com alças cruzadas + calça longa rosa claro, tecido com leve textura",
     "images": [
       "assets/products/conjunto-calca-rosa-1.jpeg"
@@ -938,7 +938,7 @@
   {
     "id": 51,
     "name": "Conjunto Calça Preto Halter",
-    "price": 145.90,
+    "price": 160.9,
     "description": "Top halter cruzado no pescoço + calça longa preta",
     "images": [
       "assets/products/conjunto-calca-preto-halter-1.jpeg"
@@ -955,7 +955,7 @@
   {
     "id": 52,
     "name": "Conjunto Calça Preto Canelado",
-    "price": 145.90,
+    "price": 160.9,
     "description": "Top + calça canelada preta com cordão na cintura",
     "images": [
       "assets/products/conjunto-calca-preto-canelado-1.jpeg"
@@ -972,7 +972,7 @@
   {
     "id": 53,
     "name": "Conjunto Calça Bege Canelado",
-    "price": 145.90,
+    "price": 160.9,
     "description": "Top com alças duplas + calça canelada bege com bolso lateral",
     "images": [
       "assets/products/conjunto-calca-bege-canelado-1.jpeg"
@@ -989,7 +989,7 @@
   {
     "id": 54,
     "name": "Conjunto Calça Azul Claro",
-    "price": 145.90,
+    "price": 160.9,
     "description": "Top com alças cruzadas + calça longa azul claro",
     "images": [
       "assets/products/conjunto-calca-azul-claro-1.jpeg"
@@ -1006,7 +1006,7 @@
   {
     "id": 55,
     "name": "Conjunto Bermuda Bege Canelado",
-    "price": 142.90,
+    "price": 157.9,
     "description": "Top + bermuda canelada bege com bolso lateral",
     "images": [
       "assets/products/conjunto-bermuda-bege-canelado-1.jpeg"
@@ -1023,7 +1023,7 @@
   {
     "id": 56,
     "name": "Camiseta Esportiva",
-    "price": 39.90,
+    "price": 39.9,
     "description": "Camiseta esportiva em tecido leve para treino, disponível em vermelho e preto",
     "images": [
       "assets/products/camiseta-vermelha-1.jpeg",
@@ -1046,7 +1046,7 @@
   {
     "id": 57,
     "name": "Conjunto Bermuda Preto Canelado",
-    "price": 132.90,
+    "price": 147.9,
     "description": "Top alças finas com detalhe no decote + bermuda canelada preta sem bolso",
     "images": [
       "assets/products/conjunto-bermuda-preto-canelado-1.jpeg"
@@ -1081,7 +1081,7 @@
   {
     "id": 59,
     "name": "Conjunto Plus Tule Verde Oliva",
-    "price": 150,
+    "price": 165,
     "description": "Blusa em tule manga curta + short bike verde oliva, conjunto plus size com toque leve e transparência nas costas",
     "images": [
       "assets/products/conjunto-plus-tule-oliva-1.jpeg",
@@ -1102,7 +1102,7 @@
   {
     "id": 60,
     "name": "Conjunto Plus Uva Short",
-    "price": 150,
+    "price": 165,
     "description": "Top + short canelado com bolso lateral na cor uva, conjunto plus size",
     "images": [
       "assets/products/conjunto-plus-uva-short-1.jpeg",
@@ -1120,7 +1120,7 @@
   {
     "id": 61,
     "name": "Conjunto Plus Terracota Short",
-    "price": 150,
+    "price": 165,
     "description": "Top nadador + short com bolso lateral na cor terracota, conjunto plus size canelado",
     "images": [
       "assets/products/conjunto-plus-terracota-short-1.jpeg",
@@ -1143,7 +1143,7 @@
   {
     "id": 62,
     "name": "Conjunto Plus Cinza e Chumbo Short",
-    "price": 150,
+    "price": 165,
     "description": "Top cinza claro com viés escuro + short chumbo com bolso lateral, conjunto plus size. As duas cores vêm juntas no conjunto.",
     "images": [
       "assets/products/conjunto-plus-cinza-chumbo-short-1.jpeg",
@@ -1162,7 +1162,7 @@
   {
     "id": 63,
     "name": "Conjunto Plus Marinho Legging",
-    "price": 159,
+    "price": 174,
     "description": "Top alças largas + legging cintura alta azul marinho em tecido brilhoso, conjunto plus size",
     "images": [
       "assets/products/conjunto-plus-marinho-legging-1.jpeg",
@@ -1184,7 +1184,7 @@
   {
     "id": 64,
     "name": "Conjunto Marsala Legging",
-    "price": 145.90,
+    "price": 160.9,
     "description": "Top + legging canelada marsala com bolso lateral, cintura alta",
     "images": [
       "assets/products/conjunto-marsala-legging-1.jpeg"
@@ -1201,7 +1201,7 @@
   {
     "id": 65,
     "name": "Conjunto Lilás Short",
-    "price": 142.90,
+    "price": 157.9,
     "description": "Top alças finas + short solto com cordão na cintura, cor lilás",
     "images": [
       "assets/products/conjunto-lilas-short-1.jpeg",
@@ -1219,7 +1219,7 @@
   {
     "id": 66,
     "name": "Conjunto Nude Short",
-    "price": 142.90,
+    "price": 157.9,
     "description": "Top alças largas + short bike com bolso lateral na cor nude",
     "images": [
       "assets/products/conjunto-nude-short-1.jpeg",
@@ -1238,7 +1238,7 @@
   {
     "id": 67,
     "name": "Conjunto Marinho Short",
-    "price": 142.90,
+    "price": 157.9,
     "description": "Top nadador + short bike azul marinho com bolso lateral",
     "images": [
       "assets/products/conjunto-marinho-short-1.jpeg",
@@ -1256,7 +1256,7 @@
   {
     "id": 68,
     "name": "Conjunto Preto Legging Brilho",
-    "price": 145.90,
+    "price": 160.9,
     "description": "Top alças largas + legging cintura alta preta em tecido brilhoso",
     "images": [
       "assets/products/conjunto-preto-legging-brilho-1.jpeg",
@@ -1278,7 +1278,7 @@
   {
     "id": 69,
     "name": "Conjunto Preto Legging com Bolso",
-    "price": 145.90,
+    "price": 160.9,
     "description": "Top nadador + legging preta com bolso lateral e costura branca em contraste",
     "images": [
       "assets/products/conjunto-preto-legging-bolso-1.jpeg",
@@ -1297,7 +1297,7 @@
   {
     "id": 70,
     "name": "Conjunto Marinho Legging com Bolso",
-    "price": 145.90,
+    "price": 160.9,
     "description": "Top decote quadrado + legging azul marinho com bolso lateral",
     "images": [
       "assets/products/conjunto-marinho-legging-bolso-1.jpeg",
@@ -1315,7 +1315,7 @@
   {
     "id": 71,
     "name": "Conjunto Uva Canelado Legging",
-    "price": 145.90,
+    "price": 160.9,
     "description": "Top halter frente única + legging canelada na cor uva",
     "images": [
       "assets/products/conjunto-uva-legging-1.jpeg",
@@ -1334,7 +1334,7 @@
   {
     "id": 72,
     "name": "Conjunto Marrom Canelado Legging",
-    "price": 145.90,
+    "price": 160.9,
     "description": "Top halter frente única + legging canelada marrom",
     "images": [
       "assets/products/conjunto-marrom-legging-1.jpeg",
