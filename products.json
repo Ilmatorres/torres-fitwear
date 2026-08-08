@@ -1059,5 +1059,297 @@
         "stock": 0
       }
     ]
+  },
+  {
+    "id": 58,
+    "name": "Blusa Dry Fit Plus Cinza",
+    "price": 65,
+    "description": "Blusa dry fit plus size cinza, tecido leve e respirável com fenda lateral (apenas a blusa, a legging da foto não está incluída)",
+    "images": [
+      "assets/products/blusa-dryfit-plus-cinza-1.jpeg",
+      "assets/products/blusa-dryfit-plus-cinza-2.jpeg"
+    ],
+    "category": "plus",
+    "colors": [
+      {
+        "name": "Cinza",
+        "hex": "#9ca3af",
+        "stock": 1
+      }
+    ]
+  },
+  {
+    "id": 59,
+    "name": "Conjunto Plus Tule Verde Oliva",
+    "price": 150,
+    "description": "Blusa em tule manga curta + short bike verde oliva, conjunto plus size com toque leve e transparência nas costas",
+    "images": [
+      "assets/products/conjunto-plus-tule-oliva-1.jpeg",
+      "assets/products/conjunto-plus-tule-oliva-2.jpeg",
+      "assets/products/conjunto-plus-tule-oliva-3.jpeg",
+      "assets/products/conjunto-plus-tule-oliva-4.jpeg",
+      "assets/products/conjunto-plus-tule-oliva-5.jpeg"
+    ],
+    "category": "plus",
+    "colors": [
+      {
+        "name": "Verde Oliva",
+        "hex": "#6b7a3a",
+        "stock": 1
+      }
+    ]
+  },
+  {
+    "id": 60,
+    "name": "Conjunto Plus Uva Short",
+    "price": 150,
+    "description": "Top + short canelado com bolso lateral na cor uva, conjunto plus size",
+    "images": [
+      "assets/products/conjunto-plus-uva-short-1.jpeg",
+      "assets/products/conjunto-plus-uva-short-2.jpeg"
+    ],
+    "category": "plus",
+    "colors": [
+      {
+        "name": "Uva",
+        "hex": "#6b2d5c",
+        "stock": 1
+      }
+    ]
+  },
+  {
+    "id": 61,
+    "name": "Conjunto Plus Terracota Short",
+    "price": 150,
+    "description": "Top nadador + short com bolso lateral na cor terracota, conjunto plus size canelado",
+    "images": [
+      "assets/products/conjunto-plus-terracota-short-1.jpeg",
+      "assets/products/conjunto-plus-terracota-short-2.jpeg",
+      "assets/products/conjunto-plus-terracota-short-3.jpeg",
+      "assets/products/conjunto-plus-terracota-short-4.jpeg",
+      "assets/products/conjunto-plus-terracota-short-5.jpeg",
+      "assets/products/conjunto-plus-terracota-short-6.jpeg",
+      "assets/products/conjunto-plus-terracota-short-7.jpeg"
+    ],
+    "category": "plus",
+    "colors": [
+      {
+        "name": "Terracota",
+        "hex": "#b45f3a",
+        "stock": 1
+      }
+    ]
+  },
+  {
+    "id": 62,
+    "name": "Conjunto Plus Cinza e Chumbo Short",
+    "price": 150,
+    "description": "Top cinza claro com viés escuro + short chumbo com bolso lateral, conjunto plus size. As duas cores vêm juntas no conjunto.",
+    "images": [
+      "assets/products/conjunto-plus-cinza-chumbo-short-1.jpeg",
+      "assets/products/conjunto-plus-cinza-chumbo-short-2.jpeg",
+      "assets/products/conjunto-plus-cinza-chumbo-short-3.jpeg"
+    ],
+    "category": "plus",
+    "colors": [
+      {
+        "name": "Cinza e Chumbo",
+        "hex": "linear-gradient(90deg,#a8b5bd 50%,#3f4348 50%)",
+        "stock": 1
+      }
+    ]
+  },
+  {
+    "id": 63,
+    "name": "Conjunto Plus Marinho Legging",
+    "price": 159,
+    "description": "Top alças largas + legging cintura alta azul marinho em tecido brilhoso, conjunto plus size",
+    "images": [
+      "assets/products/conjunto-plus-marinho-legging-1.jpeg",
+      "assets/products/conjunto-plus-marinho-legging-2.jpeg",
+      "assets/products/conjunto-plus-marinho-legging-3.jpeg",
+      "assets/products/conjunto-plus-marinho-legging-4.jpeg",
+      "assets/products/conjunto-plus-marinho-legging-5.jpeg",
+      "assets/products/conjunto-plus-marinho-legging-6.jpeg"
+    ],
+    "category": "plus",
+    "colors": [
+      {
+        "name": "Azul Marinho",
+        "hex": "#1e3a5f",
+        "stock": 1
+      }
+    ]
+  },
+  {
+    "id": 64,
+    "name": "Conjunto Marsala Legging",
+    "price": 145.90,
+    "description": "Top + legging canelada marsala com bolso lateral, cintura alta",
+    "images": [
+      "assets/products/conjunto-marsala-legging-1.jpeg"
+    ],
+    "category": "tamanho-unico",
+    "colors": [
+      {
+        "name": "Marsala",
+        "hex": "#9b2c4f",
+        "stock": 1
+      }
+    ]
+  },
+  {
+    "id": 65,
+    "name": "Conjunto Lilás Short",
+    "price": 142.90,
+    "description": "Top alças finas + short solto com cordão na cintura, cor lilás",
+    "images": [
+      "assets/products/conjunto-lilas-short-1.jpeg",
+      "assets/products/conjunto-lilas-short-2.jpeg"
+    ],
+    "category": "tamanho-unico",
+    "colors": [
+      {
+        "name": "Lilás",
+        "hex": "#c9a0dc",
+        "stock": 1
+      }
+    ]
+  },
+  {
+    "id": 66,
+    "name": "Conjunto Nude Short",
+    "price": 142.90,
+    "description": "Top alças largas + short bike com bolso lateral na cor nude",
+    "images": [
+      "assets/products/conjunto-nude-short-1.jpeg",
+      "assets/products/conjunto-nude-short-2.jpeg",
+      "assets/products/conjunto-nude-short-3.jpeg"
+    ],
+    "category": "tamanho-unico",
+    "colors": [
+      {
+        "name": "Nude",
+        "hex": "#d1a184",
+        "stock": 1
+      }
+    ]
+  },
+  {
+    "id": 67,
+    "name": "Conjunto Marinho Short",
+    "price": 142.90,
+    "description": "Top nadador + short bike azul marinho com bolso lateral",
+    "images": [
+      "assets/products/conjunto-marinho-short-1.jpeg",
+      "assets/products/conjunto-marinho-short-2.jpeg"
+    ],
+    "category": "tamanho-unico",
+    "colors": [
+      {
+        "name": "Azul Marinho",
+        "hex": "#1e3a5f",
+        "stock": 1
+      }
+    ]
+  },
+  {
+    "id": 68,
+    "name": "Conjunto Preto Legging Brilho",
+    "price": 145.90,
+    "description": "Top alças largas + legging cintura alta preta em tecido brilhoso",
+    "images": [
+      "assets/products/conjunto-preto-legging-brilho-1.jpeg",
+      "assets/products/conjunto-preto-legging-brilho-2.jpeg",
+      "assets/products/conjunto-preto-legging-brilho-3.jpeg",
+      "assets/products/conjunto-preto-legging-brilho-4.jpeg",
+      "assets/products/conjunto-preto-legging-brilho-5.jpeg",
+      "assets/products/conjunto-preto-legging-brilho-6.jpeg"
+    ],
+    "category": "tamanho-unico",
+    "colors": [
+      {
+        "name": "Preto",
+        "hex": "#000000",
+        "stock": 1
+      }
+    ]
+  },
+  {
+    "id": 69,
+    "name": "Conjunto Preto Legging com Bolso",
+    "price": 145.90,
+    "description": "Top nadador + legging preta com bolso lateral e costura branca em contraste",
+    "images": [
+      "assets/products/conjunto-preto-legging-bolso-1.jpeg",
+      "assets/products/conjunto-preto-legging-bolso-2.jpeg",
+      "assets/products/conjunto-preto-legging-bolso-3.jpeg"
+    ],
+    "category": "tamanho-unico",
+    "colors": [
+      {
+        "name": "Preto",
+        "hex": "#000000",
+        "stock": 1
+      }
+    ]
+  },
+  {
+    "id": 70,
+    "name": "Conjunto Marinho Legging com Bolso",
+    "price": 145.90,
+    "description": "Top decote quadrado + legging azul marinho com bolso lateral",
+    "images": [
+      "assets/products/conjunto-marinho-legging-bolso-1.jpeg",
+      "assets/products/conjunto-marinho-legging-bolso-2.jpeg"
+    ],
+    "category": "tamanho-unico",
+    "colors": [
+      {
+        "name": "Azul Marinho",
+        "hex": "#1e3a5f",
+        "stock": 1
+      }
+    ]
+  },
+  {
+    "id": 71,
+    "name": "Conjunto Uva Canelado Legging",
+    "price": 145.90,
+    "description": "Top halter frente única + legging canelada na cor uva",
+    "images": [
+      "assets/products/conjunto-uva-legging-1.jpeg",
+      "assets/products/conjunto-uva-legging-2.jpeg",
+      "assets/products/conjunto-uva-legging-3.jpeg"
+    ],
+    "category": "tamanho-unico",
+    "colors": [
+      {
+        "name": "Uva",
+        "hex": "#5c2a4d",
+        "stock": 1
+      }
+    ]
+  },
+  {
+    "id": 72,
+    "name": "Conjunto Marrom Canelado Legging",
+    "price": 145.90,
+    "description": "Top halter frente única + legging canelada marrom",
+    "images": [
+      "assets/products/conjunto-marrom-legging-1.jpeg",
+      "assets/products/conjunto-marrom-legging-2.jpeg",
+      "assets/products/conjunto-marrom-legging-3.jpeg",
+      "assets/products/conjunto-marrom-legging-4.jpeg",
+      "assets/products/conjunto-marrom-legging-5.jpeg"
+    ],
+    "category": "tamanho-unico",
+    "colors": [
+      {
+        "name": "Marrom",
+        "hex": "#6b4230",
+        "stock": 1
+      }
+    ]
   }
 ]
