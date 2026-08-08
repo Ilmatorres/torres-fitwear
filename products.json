@@ -1080,9 +1080,9 @@
   },
   {
     "id": 59,
-    "name": "Conjunto Plus Tule Verde Oliva",
-    "price": 165,
-    "description": "Blusa em tule manga curta + short bike verde oliva, conjunto plus size com toque leve e transparência nas costas",
+    "name": "Blusa Tule Plus Verde Oliva",
+    "price": 65,
+    "description": "Blusa em tule manga curta verde oliva plus size, transparência nas costas (apenas a blusa, o short da foto não está incluído)",
     "images": [
       "assets/products/conjunto-plus-tule-oliva-1.jpeg",
       "assets/products/conjunto-plus-tule-oliva-2.jpeg",
@@ -1090,7 +1090,7 @@
       "assets/products/conjunto-plus-tule-oliva-4.jpeg",
       "assets/products/conjunto-plus-tule-oliva-5.jpeg"
     ],
-    "category": "plus",
+    "category": "blusas",
     "colors": [
       {
         "name": "Verde Oliva",
