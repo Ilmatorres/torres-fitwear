@@ -159,7 +159,7 @@
       {
         "name": "Bege",
         "hex": "#a8836a",
-        "stock": 1
+        "stock": 0
       }
     ]
   },
@@ -1095,7 +1095,7 @@
       {
         "name": "Verde Oliva",
         "hex": "#6b7a3a",
-        "stock": 1
+        "stock": 0
       }
     ]
   },
@@ -1113,7 +1113,7 @@
       {
         "name": "Uva",
         "hex": "#6b2d5c",
-        "stock": 1
+        "stock": 0
       }
     ]
   },
@@ -1177,7 +1177,7 @@
       {
         "name": "Azul Marinho",
         "hex": "#1e3a5f",
-        "stock": 1
+        "stock": 0
       }
     ]
   },
@@ -1271,7 +1271,7 @@
       {
         "name": "Preto",
         "hex": "#000000",
-        "stock": 1
+        "stock": 0
       }
     ]
   },
